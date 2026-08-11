@@ -1,0 +1,328 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source "../**/*.blade.php";
+@source "../**/*.js";
+@source "../**/*.vue";
+
+
+@theme {
+    --font-display: 'Plus Jakarta Sans', 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-sans: 'Inter', 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
+    --color-carbon: #17181c;
+
+    /*
+     * Acento Industria — inspirado en la identidad de Innovet.
+     */
+    --color-industria: #3f7a2a;
+    --color-industria-soft: #6abd45;
+
+    /*
+     * Acento Logística — inspirado en la identidad de Upper Logistics
+     */
+    --color-logistica: #2e22a6;
+    --color-logistica-soft: #4e3fe0;
+
+    /*
+     * Acento Inmobiliaria — sin sitio de referencia.
+     */
+    --color-inmobiliaria: #8a6a32;
+    --color-inmobiliaria-soft: #c9a227;
+}
+
+/* Contenedor de grid compartido */
+@utility container-grid {
+    max-width: 1400px;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+
+    @variant sm {
+        padding-inline: 2rem;
+    }
+
+    @variant lg {
+        padding-inline: 3rem;
+    }
+}
+
+/**
+ * Navbar sticky con transformación al hacer scroll (BRIEF §3): reduce
+ * altura, aplica fondo translúcido + blur y una sombra sutil. El toggle de
+ * la clase .is-scrolled vive en resources/js/navbar.js.
+ */
+#site-header {
+    transition: padding 300ms ease, background-color 300ms ease, box-shadow 300ms ease, border-color 300ms ease;
+}
+
+#site-header.is-scrolled {
+    padding-top: 0.875rem;
+    padding-bottom: 0.875rem;
+    background-color: rgba(240, 240, 240, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom-color: var(--color-gray-200);
+    box-shadow: 0 1px 2px rgb(0 0 0 / 4%);
+}
+
+
+[data-map-instance] g[id$="-features"] path {
+    /* Todo el mapa lleva color, no solo los 5 estados activos: el país
+       completo se ve como una silueta índigo clara, no gris. */
+    fill: color-mix(in srgb, var(--color-logistica) 28%, white);
+    stroke: #ffffff;
+    stroke-width: 0.75;
+    transition: fill 250ms ease, transform 250ms ease;
+}
+
+[data-map-instance] g[id$="-features"] path[data-active-location] {
+    /* Los 5 estados activos son más saturados que el resto del mapa, con
+       el color de SU división (--marker-color, inyectado por el
+       componente Blade), para que sigan destacando sobre el fondo índigo. */
+    fill: color-mix(in srgb, var(--marker-color, var(--color-logistica)) 55%, white);
+    cursor: pointer;
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+[data-map-instance] g[id$="-features"] path[data-active-location]:focus-visible {
+    outline: 2px solid var(--marker-color, var(--color-logistica));
+    outline-offset: 2px;
+}
+
+[data-map-instance] g[id$="-features"] path.is-highlighted {
+    fill: var(--marker-color, var(--color-logistica-soft));
+    transform: scale(1.015);
+}
+
+.map-connection {
+    fill: none;
+    stroke: var(--color-logistica);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-dasharray: 7 8;
+    opacity: 0.55;
+    animation: map-dash 9s linear infinite;
+}
+
+@keyframes map-dash {
+    to {
+        stroke-dashoffset: -240;
+    }
+}
+
+/* Marcador animado por ubicación — más grande y con color propio por
+   división (--marker-color, inyectado por el componente Blade). */
+.map-marker {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.map-marker__dot {
+    width: 0.85rem;
+    height: 0.85rem;
+    border-radius: 9999px;
+    background: var(--marker-color, var(--color-logistica));
+    box-shadow: 0 0 0 3px #ffffff, 0 4px 10px -2px rgb(0 0 0 / 35%);
+    transition: background-color 200ms ease, transform 200ms ease;
+}
+
+.map-marker__pulse {
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    background: var(--marker-color, var(--color-logistica));
+    opacity: 0.55;
+    animation: map-pulse 2.2s ease-out infinite;
+}
+
+.map-marker__pulse--delay {
+    animation-delay: 1.1s;
+}
+
+.map-marker.is-hovered .map-marker__dot,
+.map-marker.is-pinned .map-marker__dot {
+    background: var(--marker-color-soft, var(--color-industria-soft));
+    transform: scale(1.3);
+}
+
+.map-marker.is-hovered .map-marker__pulse,
+.map-marker.is-pinned .map-marker__pulse {
+    background: var(--marker-color-soft, var(--color-industria-soft));
+}
+
+@keyframes map-pulse {
+    0% {
+        transform: scale(0.6);
+        opacity: 0.6;
+    }
+    100% {
+        transform: scale(3.2);
+        opacity: 0;
+    }
+}
+
+/* Entrada animada de los marcadores al aparecer en viewport (reusa
+   resources/js/reveal.js vía [data-reveal], pero con una animación de
+   "aparecer creciendo" en vez del fade-up genérico del resto del sitio). */
+.map-marker[data-reveal] {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.2);
+    transition: opacity 500ms ease, transform 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+}
+
+.map-marker[data-reveal].is-visible {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Tooltip de ubicación — con un borde superior del color de la división */
+.map-tooltip {
+    position: absolute;
+    z-index: 20;
+    max-width: 13rem;
+    transform: translate(-50%, calc(-100% - 16px));
+    border-radius: 0.75rem;
+    border-top: 3px solid var(--marker-color, var(--color-logistica));
+    background: var(--color-carbon);
+    color: #ffffff;
+    padding: 0.75rem 1rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    box-shadow: 0 12px 32px rgb(0 0 0 / 18%);
+    pointer-events: none;
+}
+
+.map-tooltip[hidden] {
+    display: none;
+}
+
+.map-tooltip__city {
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.map-tooltip__state {
+    color: rgb(255 255 255 / 55%);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 0.1rem;
+}
+
+.map-tooltip__tags {
+    margin-top: 0.4rem;
+    color: rgb(255 255 255 / 85%);
+}
+
+/**
+ * Switcher de "Tres divisiones, una misma visión" (BRIEF §6-7). Cada tab y
+ * panel trae su acento como variables CSS inline (--tab-accent/-soft), así
+ * que estas reglas son genéricas y no dependen de clases de Tailwind por
+ * división.
+ */
+.division-tab.is-active {
+    border-color: var(--tab-accent);
+    box-shadow: inset 0 0 0 1px var(--tab-accent);
+}
+
+.division-tab.is-active .division-tab__index,
+.division-tab.is-active .division-tab__label {
+    color: var(--tab-accent);
+}
+
+.division-panel {
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+    transition: opacity 350ms ease, transform 350ms ease;
+}
+
+.division-panel.is-active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.division-panel__visual {
+    color: var(--tab-accent);
+    background: linear-gradient(135deg, color-mix(in srgb, var(--tab-accent) 10%, white), color-mix(in srgb, var(--tab-accent-soft) 16%, white));
+}
+
+/**
+ * Fade-up al hacer scroll (BRIEF §17). Ver resources/js/reveal.js — cada
+ * elemento [data-reveal] arranca invisible/desplazado y se anima una sola
+ * vez al entrar en viewport. El retraso escalonado entre elementos de una
+ * misma grilla se controla con --reveal-delay (inline, opcional).
+ */
+[data-reveal] {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 600ms ease, transform 600ms ease;
+    transition-delay: var(--reveal-delay, 0ms);
+}
+
+[data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* Fade-up automático del hero al cargar la página (ya está en pantalla, no
+   depende de scroll) */
+[data-reveal-onload] {
+    animation: reveal-onload 700ms ease both;
+    animation-delay: var(--reveal-delay, 0ms);
+}
+
+@keyframes reveal-onload {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* Parallax muy ligero del visual del hero (BRIEF §17), aplicado por JS con
+   una transformación acotada — ver resources/js/parallax.js */
+[data-parallax] {
+    will-change: transform;
+}
+
+/* Barra de infraestructura animada (BRIEF §9, §17: "counters", "line
+   animations") — arranca en 0 y crece hasta su ancho real al entrar en
+   viewport, ver resources/js/counters.js */
+.infra-bar {
+    width: 0;
+    transition: width 900ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    [data-reveal],
+    [data-reveal-onload] {
+        opacity: 1;
+        transform: none;
+    }
+
+    .infra-bar {
+        width: var(--infra-width, 100%);
+    }
+}

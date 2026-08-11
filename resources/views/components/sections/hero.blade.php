@@ -1,0 +1,53 @@
+{{--
+    Hero + Mapa interactivo de México (BRIEF §4 y §5).
+
+    Se construyen como una sola experiencia (texto + mapa lado a lado) en
+    vez de un hero genérico seguido de una sección de mapa redundante:
+    el propio brief pide que el hero incluya "un elemento visual
+    relacionado con México y la infraestructura empresarial" (§4), y el
+    mapa interactivo (§5) es exactamente ese elemento, ya con todo su peso
+    visual propio. Decisión documentada en PLAN.md / Fase 3.
+--}}
+<section id="hero" class="overflow-hidden pb-24 pt-16 sm:pb-32 sm:pt-20">
+    <div class="container-grid grid grid-cols-1 items-center gap-16 lg:grid-cols-[2fr_3fr] lg:gap-10">
+
+        <div class="flex flex-col gap-8">
+            <span data-reveal-onload style="--reveal-delay: 0ms" class="text-xs font-semibold uppercase tracking-[0.2em] text-gray-500">
+                Industria &middot; Logística &middot; Inmobiliaria
+            </span>
+
+            <h1
+                data-reveal-onload
+                style="--reveal-delay: 80ms"
+                class="font-display text-4xl font-bold leading-[1.08] tracking-tight text-carbon sm:text-5xl lg:text-[3.4rem]"
+            >
+                Conectamos industria, logística e infraestructura para hacer crecer tu negocio.
+            </h1>
+
+            <p data-reveal-onload style="--reveal-delay: 160ms" class="max-w-lg text-base leading-relaxed text-gray-600 sm:text-lg">
+                Diseñamos, fabricamos, almacenamos, transportamos y desarrollamos soluciones integrales
+                para empresas que buscan crecer.
+            </p>
+
+            <div data-reveal-onload style="--reveal-delay: 240ms" class="flex flex-wrap gap-4">
+                <x-ui.button href="#divisiones" variant="secondary">
+                    Conoce nuestras soluciones
+                </x-ui.button>
+                <x-ui.button href="#contacto">
+                    Hablemos de tu proyecto
+                </x-ui.button>
+            </div>
+        </div>
+
+        <div data-parallax class="flex flex-col gap-4">
+            <div class="rounded-3xl border border-gray-100 bg-gray-50/60 p-4 shadow-[0_20px_60px_-30px_rgba(23,24,28,0.25)] sm:p-6">
+                <x-map.mexico-map instance-id="hero-map" />
+            </div>
+
+            <p class="max-w-md text-sm leading-relaxed text-gray-500">
+                Una red estratégica que conecta las principales zonas industriales y logísticas de México.
+            </p>
+        </div>
+
+    </div>
+</section>

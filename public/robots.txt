@@ -1,0 +1,5 @@
+User-agent: *
+Disallow:
+
+# Sitemap: https://[dominio-real]/sitemap.xml — agregar la línea de arriba
+# (sin corchetes) cuando se defina el dominio de producción.
