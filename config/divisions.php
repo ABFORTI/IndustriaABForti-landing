@@ -98,16 +98,18 @@ return [
         'accent' => 'logistica',
         'accent_soft' => 'logistica-soft',
         'headline' => 'Movemos tu operación. Optimizamos tu cadena de suministro.',
-        'tagline' => 'Soluciones de almacenamiento, transporte y gestión logística para mantener tu cadena de suministro en movimiento.',
+        'tagline' => 'Soluciones en logística, almacenaje y transporte terrestre.',
         'subheadline' => null,
         'cta_label' => 'Conocer Logística',
         'reference' => 'https://upperlogistics.mx/',
         'visual_keywords' => ['Almacenes', 'Transporte', 'Distribución', 'Tecnología logística'],
         'icon' => 'truck',
+        'logo' => 'logo/upper-logo.png',
+        'background_image' => 'img/upper/backgroundU.webp',
 
         'capabilities' => [
-            'Almacenaje', 'Transporte terrestre', 'Distribución', 'Logística interna',
-            'Logística inversa', 'Última milla', 'Cross docking', 'Tecnología logística', 'WMS',
+            'Almacenaje', 'Agencia Aduanal', 'Desconsolidación', 'Cross Docking',
+            'Flete terrestre', '3PL', 'Centros de Trabajo',
         ],
     ],
 
