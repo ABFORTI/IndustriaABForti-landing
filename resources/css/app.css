@@ -31,6 +31,18 @@
     --color-inmobiliaria-soft: #c9a227;
 }
 
+/*
+ * Acento rojo (identidad Innovet), usado puntualmente en el carrusel de
+ * "Industrias que atendemos" de la división industria. Fuera de @theme
+ * a propósito: solo se referencia vía var() dinámico (no como clase
+ * utilitaria literal), así que Tailwind lo eliminaría del CSS final por
+ * no detectarlo en el escaneo de contenido.
+ */
+:root {
+    --color-acent: #a41e23;
+    --color-acent-soft: #d1454b;
+}
+
 /* Contenedor de grid compartido */
 @utility container-grid {
     max-width: 1400px;
@@ -236,6 +248,43 @@
 }
 
 .division-panel__visual {
+    color: var(--tab-accent);
+    background: linear-gradient(135deg, color-mix(in srgb, var(--tab-accent) 10%, white), color-mix(in srgb, var(--tab-accent-soft) 16%, white));
+}
+
+.industry-pill {
+    cursor: pointer;
+}
+
+.industry-pill__dot {
+    background: var(--tab-accent);
+    transition: background-color 250ms ease;
+}
+
+.industry-pill.is-active {
+    border-color: var(--tab-accent);
+    background: var(--tab-accent);
+    color: white;
+}
+
+.industry-pill.is-active .industry-pill__dot {
+    background: white;
+}
+
+.industry-panel {
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+    transition: opacity 350ms ease, transform 350ms ease;
+}
+
+.industry-panel.is-active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.industry-panel__visual {
     color: var(--tab-accent);
     background: linear-gradient(135deg, color-mix(in srgb, var(--tab-accent) 10%, white), color-mix(in srgb, var(--tab-accent-soft) 16%, white));
 }

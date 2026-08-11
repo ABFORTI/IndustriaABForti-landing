@@ -5,15 +5,19 @@
     <x-sections.division-intro :division="$division" />
 
     <x-sections.capabilities
-        eyebrow="Capacidades"
-        title="Manufactura y soluciones a la medida"
+        eyebrow="Acompañamiento técnico, comunicación y trabajo estrecho con nuestros Clientes"
+        title="Descubre nuestros productos de termoformado"
         :items="$division['capabilities']"
         :accent="$division['accent']"
+        
     />
 
+    {{-- Acento rojo (identidad Innovet) exclusivo de este carrusel; el resto
+    de la página conserva el verde de la división. --}}
     <x-sections.industries-served
         :items="$division['industries_served']"
-        :accent="$division['accent']"
+        accent="acent"
+        accent-soft="acent-soft"
     />
 
     <x-sections.cta-strip :accent="$division['accent']" />

@@ -1,10 +1,48 @@
 @props(['division'])
 
-<section class="pb-16 pt-16 sm:pb-20 sm:pt-20">
-    <div class="container-grid flex flex-col gap-6">
+@php
+    $hasBackground = !empty($division['background_image']);
+    $eyebrowColor = $hasBackground ? '#ffffff' : "var(--color-{$division['accent']})";
+@endphp
+
+<section
+    class="relative overflow-hidden pb-16 pt-16 sm:pb-20 sm:pt-20 {{ $hasBackground ? 'flex min-h-[480px] items-center sm:min-h-[560px] lg:min-h-[640px]' : '' }}"
+>
+    @if ($hasBackground)
+        <img
+            src="{{ asset($division['background_image']) }}"
+            alt=""
+            class="absolute inset-0 h-full w-full object-cover"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+        />
+        <div class="absolute inset-0 bg-black/60" aria-hidden="true"></div>
+    @endif
+
+    <div class="container-grid relative flex w-full flex-col gap-6">
+        @if (!empty($division['logo']))
+            <div data-reveal-onload style="--reveal-delay: 0ms" class="w-fit">
+                @if (!empty($division['reference']))
+                    <a
+                        href="{{ $division['reference'] }}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center rounded-full bg-white px-4 py-2 shadow-sm transition-transform hover:scale-105"
+                    >
+                        <img src="{{ asset($division['logo']) }}" alt="Logo {{ $division['name'] }}" class="h-6 w-auto sm:h-7" />
+                    </a>
+                @else
+                    <span class="inline-flex items-center rounded-full bg-white px-4 py-2 shadow-sm">
+                        <img src="{{ asset($division['logo']) }}" alt="Logo {{ $division['name'] }}" class="h-6 w-auto sm:h-7" />
+                    </span>
+                @endif
+            </div>
+        @endif
+
         <span
             data-reveal-onload
-            style="--reveal-delay: 0ms; color: var(--color-{{ $division['accent'] }})"
+            style="--reveal-delay: 60ms; color: {{ $eyebrowColor }}"
             class="w-fit text-xs font-semibold uppercase tracking-[0.2em]"
         >
             {{ $division['name'] }}
@@ -12,13 +50,17 @@
 
         <h1
             data-reveal-onload
-            style="--reveal-delay: 80ms"
-            class="max-w-3xl font-display text-4xl font-bold leading-tight tracking-tight text-carbon sm:text-5xl lg:text-6xl"
+            style="--reveal-delay: 140ms"
+            class="max-w-3xl font-display text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl {{ $hasBackground ? 'text-white' : 'text-white' }}"
         >
             {{ $division['headline'] }}
         </h1>
 
-        <p data-reveal-onload style="--reveal-delay: 160ms" class="max-w-2xl text-base leading-relaxed text-gray-600 sm:text-lg">
+        <p
+            data-reveal-onload
+            style="--reveal-delay: 220ms; color: #f2f2f2;"
+            class="max-w-2xl text-base leading-relaxed sm:text-lg"
+        >
             {{ $division['subheadline'] ?? $division['tagline'] }}
         </p>
     </div>
