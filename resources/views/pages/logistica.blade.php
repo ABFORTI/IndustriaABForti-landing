@@ -1,20 +1,18 @@
 <x-layouts.app
-    title="Logística — Almacenaje, transporte y distribución en México | Grupo"
+    title="Logística — Red logística UpperLogistics y Control Up Logistics en México | Grupo"
     :description="$division['tagline']"
 >
-    <x-sections.division-intro :division="$division" />
+    <x-logistica.hero :division="$division" />
 
-    <x-sections.capabilities
-        eyebrow="Capacidades"
-        title="Logística integral, de punta a punta"
-        :items="$division['capabilities']"
-        :accent="$division['accent']"
+    <x-logistica.companies
+        :companies="config('logistics.companies')"
+        :work-centers="config('logistics.work_centers')"
+        :locations="collect(config('locations'))->keyBy('slug')"
     />
 
-    <x-sections.infrastructure-stats
-        :sites="config('infrastructure')"
-        :accent="$division['accent']"
-    />
+    <x-logistica.network-map :division="$division" />
+
+    <x-logistica.services :services="config('logistics.services')" />
 
     <x-sections.cta-strip :accent="$division['accent']" />
 

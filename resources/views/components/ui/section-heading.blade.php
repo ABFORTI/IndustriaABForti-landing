@@ -2,8 +2,8 @@
     'eyebrow' => null,
     'title',
     'subtitle' => null,
-    'align' => 'left',   // left | center
-    'accent' => null,    // industria | logistica | inmobiliaria | null
+    'align' => 'left', 
+    'accent' => null,
 ])
 
 @php

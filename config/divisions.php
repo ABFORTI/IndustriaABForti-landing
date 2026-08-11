@@ -106,10 +106,9 @@ return [
         'icon' => 'truck',
         'logo' => 'logo/upper-logo.png',
         'background_image' => 'img/upper/backgroundU.webp',
-
         'capabilities' => [
             'Almacenaje', 'Agencia Aduanal', 'Desconsolidación', 'Cross Docking',
-            'Flete terrestre', '3PL', 'Centros de Trabajo',
+            'Flete terrestre', '3PL',
         ],
     ],
 
@@ -124,6 +123,8 @@ return [
         'cta_label' => 'Conocer Inmobiliaria',
         'reference' => null,
         'visual_keywords' => ['Edificios', 'Parques industriales', 'Arquitectura', 'Infraestructura'],
+        'logo' => 'logo/innovet-logo.png',
+        'background_image' => 'img/innovet/backgroundU.webp',
         'icon' => 'building',
 
         'process' => [

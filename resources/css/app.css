@@ -41,6 +41,20 @@
 :root {
     --color-acent: #a41e23;
     --color-acent-soft: #d1454b;
+
+    /*
+     * Paleta del mapa de la red logística (BRIEF §14, ajustada a petición):
+     * centro logístico = naranja, origen de carga = azul oscuro,
+     * flujo/conexión = gris. Deliberadamente fuera de @theme: solo se
+     * referencia vía var() dinámico dentro de components/logistica/*, no
+     * como clase utilitaria literal.
+     */
+    --color-logistics-center: #ea580c;
+    --color-logistics-center-soft: #f97316;
+    --color-logistics-origin: #1e3a8a;
+    --color-logistics-origin-soft: #2563eb;
+    --color-logistics-flow: #6b7280;
+    --color-logistics-flow-soft: #9ca3af;
 }
 
 /* Contenedor de grid compartido */
@@ -324,6 +338,222 @@
 .infra-bar {
     width: 0;
     transition: width 900ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.map-marker[data-marker-type='origin'] .map-marker__dot,
+.map-marker[data-marker-type='connection'] .map-marker__dot {
+    background: transparent;
+    border: 2px solid var(--marker-color, var(--color-logistics-flow));
+    width: 0.6rem;
+    height: 0.6rem;
+}
+
+.map-marker[data-marker-type='origin'].is-hovered .map-marker__dot,
+.map-marker[data-marker-type='origin'].is-pinned .map-marker__dot,
+.map-marker[data-marker-type='connection'].is-hovered .map-marker__dot,
+.map-marker[data-marker-type='connection'].is-pinned .map-marker__dot {
+    background: var(--marker-color, var(--color-logistics-flow));
+}
+
+[data-map-instance='logistica-network'] .map-connection {
+    stroke: var(--color-logistics-flow) !important;
+    opacity: 0.35;
+}
+
+.logistics-route {
+    fill: none;
+    stroke: var(--color-logistics-flow);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    opacity: 0.85;
+    animation: map-dash 5s linear infinite;
+}
+
+.logistics-route--land {
+    stroke-dasharray: 8 6;
+}
+
+.logistics-route--sea {
+    stroke-dasharray: 1 6;
+}
+
+.logistics-route__particle--land,
+.logistics-route__particle--sea {
+    fill: var(--color-logistics-flow);
+    filter: drop-shadow(0 0 3px rgb(0 0 0 / 25%));
+}
+
+.logistics-drawer {
+    position: absolute;
+    z-index: 30;
+    top: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    width: min(19rem, calc(100% - 2rem));
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    overflow-y: auto;
+    border-radius: 1.25rem;
+    background: #ffffff;
+    border-top: 3px solid var(--color-logistics-center);
+    box-shadow: 0 24px 48px -20px rgb(0 0 0 / 30%);
+    padding: 1.5rem;
+    transform: translateX(calc(100% + 1rem));
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 350ms cubic-bezier(0.16, 1, 0.3, 1), opacity 250ms ease;
+}
+
+.logistics-drawer.is-open {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.logistics-drawer__close {
+    position: absolute;
+    top: 0.85rem;
+    right: 0.85rem;
+    display: inline-flex;
+    height: 2rem;
+    width: 2rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    color: var(--color-carbon);
+    transition: background-color 150ms ease;
+}
+
+.logistics-drawer__close:hover {
+    background: var(--color-gray-100);
+}
+
+.logistics-drawer__eyebrow {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-logistics-center);
+}
+
+.logistics-drawer__title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-carbon);
+}
+
+.logistics-drawer__sector {
+    font-size: 0.85rem;
+    color: var(--color-gray-500);
+}
+
+.logistics-drawer__group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.logistics-drawer__label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-gray-400);
+}
+
+.logistics-drawer__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.logistics-drawer__tag {
+    border-radius: 9999px;
+    background: color-mix(in srgb, var(--color-logistics-center) 10%, white);
+    color: var(--color-logistics-center);
+    padding: 0.3rem 0.7rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.logistics-drawer-backdrop {
+    display: none;
+}
+
+@media (max-width: 640px) {
+    .logistics-drawer {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: auto;
+        bottom: 0;
+        width: auto;
+        max-height: 70vh;
+        border-radius: 1.25rem 1.25rem 0 0;
+        padding-top: 1.75rem;
+        transform: translateY(100%);
+    }
+
+    .logistics-drawer::before {
+        content: '';
+        position: absolute;
+        top: 0.65rem;
+        left: 50%;
+        width: 2.5rem;
+        height: 0.25rem;
+        border-radius: 9999px;
+        background: var(--color-gray-200);
+        transform: translateX(-50%);
+    }
+
+    .logistics-drawer.is-open {
+        transform: translateY(0);
+    }
+
+    .logistics-drawer-backdrop {
+        position: fixed;
+        inset: 0;
+        z-index: 29;
+        background: rgb(23 24 28 / 40%);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 250ms ease;
+    }
+
+    .logistics-drawer-backdrop.is-open {
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+.company-card {
+    background: #ffffff;
+}
+
+.company-card:hover,
+.company-card.is-expanded {
+    border-color: var(--company-accent);
+    box-shadow: 0 20px 45px -28px color-mix(in srgb, var(--company-accent) 60%, transparent);
+}
+
+.company-card:hover .company-card__chevron,
+.company-card.is-expanded .company-card__chevron {
+    transform: rotate(180deg);
+    border-color: var(--company-accent);
+    color: var(--company-accent);
+}
+
+.company-card:hover .company-card__details,
+.company-card.is-expanded .company-card__details {
+    grid-template-rows: 1fr;
+}
+
+/* Servicios (BRIEF §8) */
+.service-card:hover .service-card__description,
+.service-card.is-expanded .service-card__description {
+    grid-template-rows: 1fr;
 }
 
 @media (prefers-reduced-motion: reduce) {

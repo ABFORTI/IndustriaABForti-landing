@@ -1,10 +1,7 @@
 @props(['items', 'accent', 'accentSoft' => null])
 
 @php
-    // Soporta tanto items simples (string) como items enriquecidos
-    // (label, icon, image, description) para alimentar el carrusel interactivo.
-    // Si la imagen aún no existe en disco, cae de vuelta al icono para no
-    // romper el layout mientras se suben las fotos definitivas.
+
     $slugged = collect($items)->map(function ($item, $index) {
         $isRich = is_array($item);
         $image = $isRich ? ($item['image'] ?? null) : null;
@@ -33,7 +30,6 @@
             class="flex flex-col gap-8 lg:flex-row lg:gap-12"
             style="--tab-accent: var(--color-{{ $accent }}); --tab-accent-soft: var(--color-{{ $accentSoft }})"
         >
-            {{-- Pills --}}
             <div
                 role="tablist"
                 aria-label="Industrias atendidas"
@@ -57,7 +53,7 @@
                 @endforeach
             </div>
 
-            {{-- Panel / carrusel: apilados en la misma celda, transición por opacidad --}}
+            
             <div class="grid flex-1">
                 @foreach ($slugged as $item)
                     <div

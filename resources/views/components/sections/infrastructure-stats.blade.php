@@ -42,5 +42,8 @@
                 </div>
             @endforeach
         </div>
+        <div class="rounded-3xl border border-gray-100 bg-gray-50/60 p-4 shadow-[0_20px_60px_-30px_rgba(23,24,28,0.25)] sm:p-6">
+            <x-map.mexico-map instance-id="hero-map" />
+        </div>
     </div>
 </section>

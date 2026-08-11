@@ -80,20 +80,22 @@ function initMapInstance(root) {
     };
 
     markers.forEach((marker) => {
-        const pointEl = svg.querySelector(`#${CSS.escape(marker.dataset.pointId)}`);
-        const stateEl = svg.querySelector(`#${CSS.escape(marker.dataset.stateId)}`);
+        const pointEl = marker.dataset.pointId
+            ? svg.querySelector(`#${CSS.escape(marker.dataset.pointId)}`)
+            : null;
+        const stateEl = marker.dataset.stateId
+            ? svg.querySelector(`#${CSS.escape(marker.dataset.stateId)}`)
+            : null;
 
-        if (!pointEl) {
-            return;
+        if (pointEl) {
+            const cx = parseFloat(pointEl.getAttribute('cx'));
+            const cy = parseFloat(pointEl.getAttribute('cy'));
+
+            marker.style.left = `${(cx / vbWidth) * 100}%`;
+            marker.style.top = `${(cy / vbHeight) * 100}%`;
+
+            points.push({ slug: marker.dataset.slug, accent: marker.dataset.accent, cx, cy });
         }
-
-        const cx = parseFloat(pointEl.getAttribute('cx'));
-        const cy = parseFloat(pointEl.getAttribute('cy'));
-
-        marker.style.left = `${(cx / vbWidth) * 100}%`;
-        marker.style.top = `${(cy / vbHeight) * 100}%`;
-
-        points.push({ slug: marker.dataset.slug, accent: marker.dataset.accent, cx, cy });
 
         marker.addEventListener('mouseenter', () => activate(marker, stateEl));
         marker.addEventListener('mouseleave', () => deactivate(marker, stateEl));

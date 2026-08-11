@@ -1,13 +1,11 @@
 @props([
-    'variant' => 'primary', // primary | secondary | ghost
-    'accent' => null,       // industria | logistica | inmobiliaria | null (carbón por defecto)
+    'variant' => 'primary', 
+    'accent' => null,
     'href' => null,
 ])
 
 @php
-    // Los nombres de utilidades Tailwind se escriben completos y literales
-    // (no se concatenan en tiempo de ejecución) para que el escaneo de
-    // clases de Tailwind los detecte en el build.
+    
     $solid = match ($accent) {
         'industria' => 'bg-industria hover:bg-industria-soft focus-visible:outline-industria',
         'logistica' => 'bg-logistica hover:bg-logistica-soft focus-visible:outline-logistica',

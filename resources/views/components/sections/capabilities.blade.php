@@ -57,8 +57,6 @@
         </div>
     </div>
 
-    {{-- Modal de ventajas de producto: una sola instancia, poblada por JS
-    con los data-product-* de la tarjeta que se haya clickeado. --}}
     <div
         data-product-modal
         class="fixed inset-0 z-[70] flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300"

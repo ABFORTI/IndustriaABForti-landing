@@ -7,6 +7,7 @@ import { initProductModal } from './product-modal';
 import { initReveal } from './reveal';
 import { initParallax } from './parallax';
 import { initCounters } from './counters';
+import { initLogistics } from './logistics-map';
 
 document.addEventListener('DOMContentLoaded', () => {
     initNavbar();
@@ -17,4 +18,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initReveal();
     initParallax();
     initCounters();
+    initLogistics();
 });

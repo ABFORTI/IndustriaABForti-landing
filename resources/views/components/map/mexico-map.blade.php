@@ -73,23 +73,32 @@
 
         <div class="pointer-events-none absolute inset-0" data-map-markers>
             @foreach ($locations as $location)
-                @continue(! $location['state_svg_id'])
+                @continue(! $location['state_svg_id'] && empty($location['point']))
 
-                @php $accent = $location['divisions'][0] ?? 'logistica'; @endphp
+                @php
+                    $accent = $location['accent'] ?? ($location['divisions'][0] ?? 'logistica');
+                    $inlinePosition = empty($location['point'])
+                        ? ''
+                        : sprintf('left: %s%%; top: %s%%;', $location['point']['x'] / 10, $location['point']['y'] / 6.3);
+                @endphp
 
                 <button
                     type="button"
                     data-reveal
                     class="map-marker pointer-events-auto"
                     data-marker
+                    data-marker-type="{{ $location['type'] ?? 'center' }}"
                     data-slug="{{ $location['slug'] }}"
                     data-accent="{{ $accent }}"
-                    data-state-id="{{ $instanceId }}-state-{{ $location['state_svg_id'] }}"
-                    data-point-id="{{ $instanceId }}-point-{{ $location['state_svg_id'] }}"
+                    @if ($location['state_svg_id'])
+                        data-state-id="{{ $instanceId }}-state-{{ $location['state_svg_id'] }}"
+                        data-point-id="{{ $instanceId }}-point-{{ $location['state_svg_id'] }}"
+                    @endif
                     data-city="{{ $location['city'] }}"
                     data-state-name="{{ $location['state'] }}"
                     data-highlights="{{ implode(' · ', $location['highlights']) }}"
-                    style="--marker-color: var(--color-{{ $accent }}); --marker-color-soft: var(--color-{{ $accent }}-soft); --reveal-delay: {{ $loop->index * 100 }}ms"
+                    @if (! empty($location['meta'])) data-meta="{{ json_encode($location['meta'], JSON_UNESCAPED_UNICODE) }}" @endif
+                    style="{{ $inlinePosition }} --marker-color: var(--color-{{ $accent }}); --marker-color-soft: var(--color-{{ $accent }}-soft); --reveal-delay: {{ $loop->index * 100 }}ms"
                     aria-label="{{ $location['city'] }}: {{ implode(', ', $location['highlights']) }}"
                 >
                     <span class="map-marker__pulse map-marker__pulse--delay" aria-hidden="true"></span>

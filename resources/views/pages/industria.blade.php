@@ -12,8 +12,7 @@
         
     />
 
-    {{-- Acento rojo (identidad Innovet) exclusivo de este carrusel; el resto
-    de la página conserva el verde de la división. --}}
+    
     <x-sections.industries-served
         :items="$division['industries_served']"
         accent="acent"

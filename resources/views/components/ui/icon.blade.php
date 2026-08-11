@@ -21,6 +21,15 @@
         'bag' => ['M5 8H19L18 21H6Z', 'M8 8V6A4 4 0 0 1 16 6V8'],
         'cross' => ['M5 5H19V19H5Z', 'M12 8V16', 'M8 12H16'],
         'droplet' => ['M12 3C12 3 6 11 6 15A6 6 0 0 0 18 15C18 11 12 3 12 3Z'],
+        // Iconografía de la sección Logística (BRIEF §2 y §8): hero de flujo
+        // Origen→Cliente y tarjetas de servicio. Mismo trazo simple que el
+        // resto del set, sin representar geografía real.
+        'anchor' => ['M12 3A2 2 0 1 0 12 3.01', 'M12 6V21', 'M5 13C5 17.5 8 20.5 12 21C16 20.5 19 17.5 19 13', 'M4 10H8', 'M16 10H20'],
+        'stamp' => ['M7 3H17V9H7Z', 'M9 9V13H15V9', 'M5 20H19', 'M9 16H15'],
+        'user' => ['M12 12A4 4 0 1 0 12 4A4 4 0 1 0 12 12Z', 'M4 21C4 16.5 7.5 14 12 14C16.5 14 20 16.5 20 21'],
+        'layers' => ['M4 6H14V11H4Z', 'M7 13H17V18H7Z'],
+        'boxes' => ['M4 4H10.5V10.5H4Z', 'M13.5 4H20V10.5H13.5Z', 'M4 13.5H10.5V20H4Z', 'M13.5 13.5H20V20H13.5Z'],
+        'shuffle' => ['M3 6H12L9 3', 'M3 6L9 9', 'M21 18H12L15 21', 'M21 18L15 15'],
         default => [],
     };
 @endphp
