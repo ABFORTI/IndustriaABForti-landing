@@ -1,10 +1,3 @@
-/**
- * Anima las barras de infraestructura y su cifra en m² al entrar en
- * viewport (BRIEF §9 "indicadores visuales de infraestructura", §17
- * "counters", "line animations"). Requiere [data-infra-bar] con
- * data-target-width y data-target-value ya calculados en el servidor
- * (Blade) — aquí solo se anima, no se recalculan datos.
- */
 export function initCounters() {
     const bars = Array.from(document.querySelectorAll('[data-infra-bar]'));
 

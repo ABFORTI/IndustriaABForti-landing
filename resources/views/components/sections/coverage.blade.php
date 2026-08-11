@@ -1,9 +1,3 @@
-{{--
-    Sección de cobertura (BRIEF §12): reutiliza el mismo mapa interactivo del
-    hero, pero enmarcado como red empresarial. La instancia usa un id
-    distinto ("coverage-map") para no chocar con la del hero en la misma
-    página — ver components/map/mexico-map.blade.php.
---}}
 <section class="bg-gray-50/60 py-24 sm:py-32">
     <div class="container-grid grid grid-cols-1 items-center gap-12 lg:grid-cols-[1.5fr_1fr] lg:gap-16">
 
@@ -18,7 +12,6 @@
                 subtitle="Las mismas ubicaciones del mapa forman parte de una sola red estratégica que conecta industria, logística e infraestructura en México."
             />
 
-            {{-- México → conexiones → Industria / Logística / Infraestructura (diagrama literal del BRIEF §12) --}}
             <div class="flex flex-col items-start">
                 <span class="font-display text-2xl font-bold text-carbon">México</span>
                 <div class="my-3 h-8 w-px bg-gray-300" aria-hidden="true"></div>

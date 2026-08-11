@@ -1,13 +1,3 @@
-{{--
-    Hero + Mapa interactivo de México (BRIEF §4 y §5).
-
-    Se construyen como una sola experiencia (texto + mapa lado a lado) en
-    vez de un hero genérico seguido de una sección de mapa redundante:
-    el propio brief pide que el hero incluya "un elemento visual
-    relacionado con México y la infraestructura empresarial" (§4), y el
-    mapa interactivo (§5) es exactamente ese elemento, ya con todo su peso
-    visual propio. Decisión documentada en PLAN.md / Fase 3.
---}}
 <section id="hero" class="overflow-hidden pb-24 pt-16 sm:pb-32 sm:pt-20">
     <div class="container-grid grid grid-cols-1 items-center gap-16 lg:grid-cols-[2fr_3fr] lg:gap-10">
 

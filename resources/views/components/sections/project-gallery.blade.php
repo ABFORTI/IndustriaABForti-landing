@@ -1,10 +1,6 @@
 @props(['items', 'accent', 'accentSoft'])
 
-{{--
-    BRIEF §10/§25: todavía no hay proyectos reales que mostrar, así que se
-    usan placeholders elegantes y claramente marcados por categoría, en vez
-    de inventar proyectos o clientes.
---}}
+
 <section class="py-16">
     <div class="container-grid flex flex-col gap-8">
         <x-ui.section-heading

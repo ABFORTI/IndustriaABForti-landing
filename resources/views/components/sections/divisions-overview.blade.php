@@ -3,15 +3,6 @@
     $firstSlug = array_key_first($divisions);
 @endphp
 
-{{--
-    "Tres divisiones, una misma visión" + transición (BRIEF §6-7).
-
-    En vez de tres tarjetas estáticas, se implementa como un switcher: el
-    usuario cambia entre Industria → Logística → Inmobiliaria sin salir de
-    la sección, y solo cambian el acento de color, el ícono y el
-    placeholder visual — el sistema (tipografía, spacing, estructura) se
-    mantiene igual entre las tres, tal como pide el brief.
---}}
 <section id="divisiones" class="py-24 sm:py-32">
     <div class="container-grid flex flex-col gap-14">
         <x-ui.section-heading
@@ -22,10 +13,6 @@
             class="mx-auto"
         />
 
-        {{-- data-reveal en el contenedor completo, no en cada panel: los
-             paneles ya tienen su propia animación de opacidad ligada a
-             .is-active (el switcher), mezclar los dos sistemas en el mismo
-             elemento produciría un conflicto de transiciones. --}}
         <div data-division-switcher data-reveal class="flex flex-col gap-8 lg:flex-row lg:gap-16">
             {{-- Tabs --}}
             <div

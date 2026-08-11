@@ -1,8 +1,4 @@
-/**
- * Comportamiento del navbar global (BRIEF §3):
- *  - Transformación sutil al hacer scroll (altura, fondo, blur).
- *  - Menú mobile de pantalla completa con apertura/cierre accesible.
- */
+
 export function initNavbar() {
     const header = document.getElementById('site-header');
     const openButton = document.getElementById('mobile-menu-open');

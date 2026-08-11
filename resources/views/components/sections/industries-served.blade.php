@@ -1,6 +1,5 @@
 @props(['items', 'accent'])
 
-{{-- BRIEF §8: "Industrias que atendemos" --}}
 <section class="py-16">
     <div class="container-grid flex flex-col gap-8">
         <x-ui.section-heading eyebrow="Cobertura" title="Industrias que atendemos" />

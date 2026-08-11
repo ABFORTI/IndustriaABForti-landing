@@ -1,14 +1,3 @@
-/**
- * Fade-up al entrar en viewport (BRIEF §17: "fade-up, fade-in"). Un solo
- * IntersectionObserver para todo el sitio en vez de uno por sección —
- * cualquier elemento con [data-reveal] se anima una sola vez la primera
- * vez que aparece.
- *
- * Si el usuario tiene activado "reducir movimiento" en su sistema, no se
- * observa nada: los elementos se quedan visibles desde el inicio (la regla
- * CSS de reduced-motion en app.css ya neutraliza la transición, esto solo
- * evita el trabajo de observarlos).
- */
 export function initReveal() {
     const targets = document.querySelectorAll('[data-reveal]');
 

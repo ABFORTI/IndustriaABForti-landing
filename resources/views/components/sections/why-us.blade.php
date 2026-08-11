@@ -1,6 +1,4 @@
 @php
-    // BRIEF §11: los 6 conceptos y sus descripciones son citas literales.
-    // No se agregan cifras, certificaciones ni clientes (regla del §25).
     $reasons = [
         ['title' => 'Experiencia', 'text' => 'Conocimiento especializado en diferentes industrias.', 'icon' => 'shield'],
         ['title' => 'Infraestructura', 'text' => 'Capacidad para operar y desarrollar proyectos de diferentes escalas.', 'icon' => 'building'],

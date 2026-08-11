@@ -1,8 +1,4 @@
-/**
- * Parallax muy ligero (BRIEF §17: "parallax muy ligero") para el visual del
- * hero. Desplazamiento pequeño y acotado atado al scroll — nada brusco, se
- * desactiva por completo con "reducir movimiento".
- */
+
 export function initParallax() {
     const targets = Array.from(document.querySelectorAll('[data-parallax]'));
 
@@ -14,7 +10,7 @@ export function initParallax() {
         return;
     }
 
-    const MAX_OFFSET = 18; // px — deliberadamente sutil
+    const MAX_OFFSET = 18;
 
     let ticking = false;
 

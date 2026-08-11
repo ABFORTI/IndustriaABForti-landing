@@ -1,8 +1,4 @@
-/**
- * Switcher de "Tres divisiones, una misma visión" (BRIEF §6-7): cambia
- * entre paneles sin recargar ni saltar de sección, con navegación de
- * teclado tipo tablist (flechas) además de click.
- */
+
 export function initDivisionSwitcher() {
     document.querySelectorAll('[data-division-switcher]').forEach((root) => {
         const tabs = Array.from(root.querySelectorAll('[data-tab]'));

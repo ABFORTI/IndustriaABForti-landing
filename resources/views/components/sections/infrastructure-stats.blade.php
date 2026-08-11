@@ -4,9 +4,6 @@
     $max = max(array_column($sites, 'sqm'));
 @endphp
 
-{{-- BRIEF §9: infraestructura como indicador visual, no como texto plano.
-     Las barras arrancan en 0 y crecen hasta su ancho real al hacer scroll
-     (BRIEF §17: "counters", "line animations") — ver resources/js/counters.js. --}}
 <section class="py-16">
     <div class="container-grid flex flex-col gap-10">
         <x-ui.section-heading

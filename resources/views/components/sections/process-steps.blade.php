@@ -1,6 +1,5 @@
 @props(['steps', 'accent'])
 
-{{-- BRIEF §10: proceso 01-06 --}}
 <section class="py-16">
     <div class="container-grid flex flex-col gap-10">
         <x-ui.section-heading eyebrow="Proceso" title="Cómo trabajamos" />

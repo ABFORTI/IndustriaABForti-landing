@@ -1,13 +1,3 @@
-/**
- * Interactividad del mapa de México (BRIEF §5, §12, §22):
- *  - hover/foco: ilumina el estado y muestra tooltip con ciudad + servicios.
- *  - click/tap: fija el tooltip (soporte táctil en mobile).
- *  - conexiones: líneas hub-and-spoke desde Ciudad de México hacia el
- *    resto de ubicaciones, para representar la red empresarial del grupo.
- *
- * Soporta múltiples instancias del mismo componente en una página (el
- * mapa se reutiliza en la sección de cobertura, BRIEF §12).
- */
 export function initMexicoMaps() {
     document.querySelectorAll('[data-map-instance]').forEach(initMapInstance);
 }
@@ -39,8 +29,6 @@ function initMapInstance(root) {
         markers.forEach((m) => m.classList.remove('is-pinned'));
     };
 
-    // aria-describedby conecta el elemento activo (botón o estado del SVG)
-    // con el tooltip, para que un lector de pantalla anuncie su contenido.
     const showTooltip = (marker, stateEl) => {
         if (!tooltip) return;
 
@@ -139,8 +127,6 @@ function initMapInstance(root) {
         }
     });
 
-    // Conexiones hub-and-spoke desde Ciudad de México (BRIEF §5: "líneas o
-    // conexiones visuales entre los principales puntos").
     if (connectionsLayer) {
         const hub = points.find((p) => p.slug === 'cdmx');
 

@@ -37,9 +37,6 @@
                 continue;
             }
 
-            // Cada ubicación toma el color de su primera división real
-            // (BRIEF §16: los acentos son de división, no del mapa en sí) —
-            // así el mapa se ve más colorido sin inventar una paleta nueva.
             $accent = $location['divisions'][0] ?? 'logistica';
 
             $stateId = $instanceId.'-state-'.$location['state_svg_id'];

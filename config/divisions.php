@@ -1,22 +1,5 @@
 <?php
 
-/**
- * Divisiones del grupo (BRIEF §1, §6, §8-10, §16).
- *
- * Fuente única de verdad para navbar, rutas, tarjetas de "tres divisiones"
- * y páginas propias de cada división. `accent`/`accent_soft` son nombres de
- * tokens de color definidos en resources/css/app.css (@theme), no valores
- * hex directos, para no duplicar la paleta en dos lugares.
- *
- * `headline`/`tagline` son citas literales de las secciones 6, 8, 9 y 10 del
- * BRIEF.md — no contenido inventado. `tagline` es, en concreto, el texto de
- * la tarjeta de cada división en la sección 6 ("Tres divisiones, una misma
- * visión"); se reutiliza también como meta description de su página propia.
- * `visual_keywords` son los términos que la sección 6 pide transmitir
- * visualmente por división — se muestran como leyenda del placeholder de
- * imagen (BRIEF §23/§25: sin fotografía real todavía).
- */
-
 return [
 
     'industria' => [
@@ -30,7 +13,6 @@ return [
         'reference' => 'https://innovet.com.mx/',
         'visual_keywords' => ['Manufactura', 'Maquinaria', 'Piezas industriales', 'Ingeniería'],
         'icon' => 'cube',
-        // BRIEF §8 — capacidades y sección "Industrias que atendemos".
         'capabilities' => [
             'Manufactura', 'Termoformado', 'Empaques', 'Soluciones personalizadas',
             'Diseño', 'Prototipos', 'Moldes', 'Herramientas', 'Soluciones para diferentes industrias',
@@ -51,7 +33,7 @@ return [
         'reference' => 'https://upperlogistics.mx/',
         'visual_keywords' => ['Almacenes', 'Transporte', 'Distribución', 'Tecnología logística'],
         'icon' => 'truck',
-        // BRIEF §9 — capacidades. Los m² de infraestructura viven en config/infrastructure.php.
+
         'capabilities' => [
             'Almacenaje', 'Transporte terrestre', 'Distribución', 'Logística interna',
             'Logística inversa', 'Última milla', 'Cross docking', 'Tecnología logística', 'WMS',
@@ -64,13 +46,13 @@ return [
         'accent_soft' => 'inmobiliaria-soft',
         'headline' => 'Tu proyecto. De la idea a la realidad.',
         'tagline' => 'Desarrollamos proyectos inmobiliarios empresariales llave en mano, desde la planeación hasta la entrega.',
-        // Subheadline propio de la página (§10), distinto del texto de tarjeta (§6) de "tagline".
+    
         'subheadline' => 'Desarrollamos proyectos empresariales llave en mano, integrando planeación, diseño, construcción y entrega bajo una misma visión.',
         'cta_label' => 'Conocer Inmobiliaria',
         'reference' => null,
         'visual_keywords' => ['Edificios', 'Parques industriales', 'Arquitectura', 'Infraestructura'],
         'icon' => 'building',
-        // BRIEF §10 — proceso 01-06 y categorías de proyecto (placeholders, sin proyectos reales aún).
+
         'process' => [
             ['step' => '01', 'label' => 'Planeación'],
             ['step' => '02', 'label' => 'Diseño'],

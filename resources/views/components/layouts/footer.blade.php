@@ -28,7 +28,6 @@
     <div class="container-grid flex flex-col gap-16 py-20">
 
         <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1fr]">
-            {{-- Contacto (BRIEF §14): placeholders claramente marcados, sin inventar datos --}}
             <div class="flex flex-col gap-4">
                 <a
                     href="{{ route('home') }}"

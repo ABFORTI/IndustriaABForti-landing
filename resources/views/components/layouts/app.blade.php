@@ -20,9 +20,6 @@
     <meta name="robots" content="{{ $noindex ? 'noindex, nofollow' : 'index, follow' }}">
     <link rel="canonical" href="{{ $canonical }}">
 
-    {{-- Open Graph / Twitter (BRIEF §20). Sin og:image: no hay fotografía ni
-         logo real todavía (BRIEF §23/§25) — se agrega cuando exista, en vez
-         de referenciar una imagen falsa o rota. --}}
     <meta property="og:type" content="website">
     <meta property="og:locale" content="es_MX">
     <meta property="og:site_name" content="Grupo">
