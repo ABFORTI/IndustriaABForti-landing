@@ -29,7 +29,7 @@
         </div>
 
         <div data-parallax class="flex flex-col gap-4">
-            <div class="rounded-3xl border border-gray-100 bg-gray-50/60 p-4 shadow-[0_20px_60px_-30px_rgba(23,24,28,0.25)] sm:p-6">
+            <div class="-mx-4 rounded-2xl border border-gray-100 bg-gray-50/60 p-2 shadow-[0_20px_60px_-30px_rgba(23,24,28,0.25)] sm:mx-0 sm:rounded-3xl sm:p-6">
                 <x-map.mexico-map instance-id="hero-map" />
             </div>
         </div>

@@ -28,11 +28,11 @@ return [
     ],
 
     'services' => [
-        ['key' => '3pl', 'icon' => 'layers', 'label' => '3PL', 'description' => 'Gestión externalizada de almacenaje, inventario y distribución de punta a punta.', 'image' => 'img/upper-card.webp'],
+        ['key' => '3pl', 'icon' => 'layers', 'label' => '3PL', 'description' => 'Gestión externalizada de almacenaje, inventario y distribución de punta a punta.', 'image' => 'img/upper/3pl.webp'],
         ['key' => 'aduanal', 'icon' => 'stamp', 'label' => 'Agencia aduanal', 'description' => 'Trámites y cumplimiento aduanero para que la carga cruce frontera sin fricción.', 'image' => 'img/upper/backgroundU.webp'],
-        ['key' => 'desconsolidacion', 'icon' => 'boxes', 'label' => 'Desconsolidación', 'description' => 'Separación de carga consolidada en envíos individuales listos para distribución.', 'image' => 'img/upper-card.webp'],
-        ['key' => 'crossdocking', 'icon' => 'shuffle', 'label' => 'Cross Docking', 'description' => 'La mercancía cambia de transporte sin pasar por almacenaje, reduciendo tiempos.', 'image' => 'img/upper/backgroundU.webp'],
-        ['key' => 'flete', 'icon' => 'truck', 'label' => 'Flete terrestre', 'description' => 'Transporte terrestre propio y aliado hacia cualquier punto de la red nacional.', 'image' => 'img/upper-card.webp'],
+        ['key' => 'desconsolidacion', 'icon' => 'boxes', 'label' => 'Desconsolidación', 'description' => 'Separación de carga consolidada en envíos individuales listos para distribución.', 'image' => 'img/upper/desconsolidacion.webp'],
+        ['key' => 'crossdocking', 'icon' => 'shuffle', 'label' => 'Cross Docking', 'description' => 'La mercancía cambia de transporte sin pasar por almacenaje, reduciendo tiempos.', 'image' => 'img/upper/cross.webp'],
+        ['key' => 'flete', 'icon' => 'truck', 'label' => 'Flete terrestre', 'description' => 'Transporte terrestre propio y aliado hacia cualquier punto de la red nacional.', 'image' => 'img/upper/flete.webp'],
     ],
 
     'work_centers' => [

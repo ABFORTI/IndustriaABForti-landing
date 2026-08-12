@@ -59,7 +59,7 @@
     --color-logistics-flow-soft: #9ca3af;
 }
 
-/* Contenedor de grid compartido */
+
 @utility container-grid {
     max-width: 1400px;
     margin-inline: auto;
@@ -74,11 +74,7 @@
     }
 }
 
-/**
- * Navbar sticky con transformación al hacer scroll (BRIEF §3): reduce
- * altura, aplica fondo translúcido + blur y una sombra sutil. El toggle de
- * la clase .is-scrolled vive en resources/js/navbar.js.
- */
+
 #site-header {
     transition: padding 300ms ease, background-color 300ms ease, box-shadow 300ms ease, border-color 300ms ease;
 }
@@ -96,7 +92,7 @@
 
 [data-map-instance] g[id$="-features"] path {
     fill: color-mix(in srgb, var(--color-logistica) 28%, white);
-    stroke: #ffffff;
+    stroke: #000000;
     stroke-width: 0.75;
     transition: fill 250ms ease, transform 250ms ease;
 }
@@ -139,16 +135,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1rem;
+    height: 1rem;
     transform: translate(-50%, -50%);
     cursor: pointer;
 }
 
 .map-marker__dot {
-    width: 0.85rem;
-    height: 0.85rem;
-    border-radius: 9999px;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50px;
     background: var(--marker-color, var(--color-logistica));
     box-shadow: 0 0 0 3px #ffffff, 0 4px 10px -2px rgb(0 0 0 / 35%);
     transition: background-color 200ms ease, transform 200ms ease;
@@ -157,9 +153,9 @@
 .map-marker__pulse {
     position: absolute;
     inset: 0;
-    border-radius: 9999px;
+    border-radius: 50px;
     background: var(--marker-color, var(--color-logistica));
-    opacity: 0.55;
+    opacity: 0.25;
     animation: map-pulse 2.2s ease-out infinite;
 }
 
@@ -201,7 +197,7 @@
     transform: translate(-50%, -50%) scale(1);
 }
 
-/* Tooltip de ubicación — con un borde superior del color de la división */
+
 .map-tooltip {
     position: absolute;
     z-index: 20;

@@ -12,7 +12,6 @@ return [
         'reference' => 'https://innovet.com.mx/',
         'visual_keywords' => ['Manufactura', 'Maquinaria', 'Piezas industriales', 'Ingeniería'],
         'image' => 'img/innovet-card.webp',
-        'logo' => 'logo/innovet-logo.png',
         'background_image' => 'img/innovet/background.webp',
         'capabilities' => [
             [
@@ -121,8 +120,7 @@ return [
         'cta_label' => 'Conocer Inmobiliaria',
         'reference' => null,
         'visual_keywords' => ['Edificios', 'Parques industriales', 'Arquitectura', 'Infraestructura'],
-        'logo' => 'logo/innovet-logo.png',
-        'background_image' => 'img/innovet/backgroundU.webp',
+        'background_image' => 'img/inmobiliaria/inmobiliariaBack.jpg',
         'image' => 'img/inmobiliaria-card.webp',
         'process' => [
             ['step' => '01', 'label' => 'Planeación'],
@@ -133,8 +131,7 @@ return [
             ['step' => '06', 'label' => 'Entrega'],
         ],
         'project_placeholders' => [
-            'Parques industriales', 'Centros de distribución', 'Naves industriales',
-            'Edificios corporativos', 'Infraestructura empresarial',
+            'Parques industriales', 'Centros de distribución', 'Infraestructura empresarial',
         ],
     ],
 

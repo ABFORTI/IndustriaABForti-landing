@@ -109,7 +109,7 @@
             </span>
         </div>
 
-        <div data-logistics-map-root class="relative rounded-3xl border border-gray-100 bg-white p-4 shadow-[0_20px_60px_-30px_rgba(23,24,28,0.25)] sm:p-6">
+        <div data-logistics-map-root class="relative -mx-4 rounded-2xl border border-gray-100 bg-white p-2 shadow-[0_20px_60px_-30px_rgba(23,24,28,0.25)] sm:mx-0 sm:rounded-3xl sm:p-6">
             <x-map.mexico-map instance-id="logistica-network" :locations="$mapLocations" />
 
             {{-- Sin flechas: solo la línea de flujo (BRIEF §14), para que el

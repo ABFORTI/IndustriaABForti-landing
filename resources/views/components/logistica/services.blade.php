@@ -12,15 +12,15 @@
 
         {{-- Servicios: contenido siempre visible (sin depender de hover/tap)
         para que se lea de un vistazo en cualquier dispositivo. --}}
-        <div class="flex flex-wrap justify-center gap-3">
+        <div class="grid grid-cols-1 gap-3 sm:flex sm:flex-wrap sm:justify-center">
             @foreach ($services as $index => $service)
                 <article
                     data-reveal
                     style="--reveal-delay: {{ $index * 60 }}ms"
-                    class="service-card group relative flex w-[calc(50%-0.375rem)] flex-col overflow-hidden rounded-xl border border-gray-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-logistica/50 hover:shadow-lg hover:shadow-logistica/10 sm:w-[calc(33.333%-0.5rem)] lg:w-44"
+                    class="service-card group relative flex w-full flex-col overflow-hidden rounded-xl border border-gray-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-logistica/50 hover:shadow-lg hover:shadow-logistica/10 sm:w-[calc(50%-0.375rem)] md:w-[calc(33.333%-0.5rem)] lg:w-44"
                 >
                     @if (! empty($service['image']))
-                        <div class="relative aspect-[16/10] w-full overflow-hidden">
+                        <div class="relative aspect-[16/9] w-full overflow-hidden sm:aspect-[16/10]">
                             <img
                                 src="{{ asset($service['image']) }}"
                                 alt=""
@@ -38,10 +38,10 @@
                         </div>
                     @endif
 
-                    <div class="flex flex-1 flex-col gap-2 p-3">
+                    <div class="flex flex-1 flex-col gap-2 p-4 sm:p-3">
                         @unless (! empty($service['image']))
                             <div class="flex items-center justify-between">
-                                <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-logistica/10 text-logistica transition-colors duration-300 group-hover:bg-logistica group-hover:text-white">
+                                <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-logistica/10 text-logistica transition-colors duration-300 group-hover:bg-logistica group-hover:text-white sm:h-8 sm:w-8">
                                     <x-ui.icon :name="$service['icon']" class="h-4 w-4" />
                                 </span>
                                 <span class="font-mono text-[10px] font-semibold tracking-widest text-gray-300">
@@ -51,10 +51,10 @@
                         @endunless
 
                         <div class="flex flex-col gap-1">
-                            <h3 class="font-display text-xs font-bold text-carbon">
+                            <h3 class="font-display text-sm font-bold text-carbon sm:text-xs">
                                 {{ $service['label'] }}
                             </h3>
-                            <p class="line-clamp-2 text-[11px] leading-relaxed text-gray-500">
+                            <p class="text-[13px] leading-relaxed text-gray-500 sm:line-clamp-3 sm:text-[11px]">
                                 {{ $service['description'] }}
                             </p>
                         </div>
