@@ -40,6 +40,7 @@
             </div>
         @endif
 
+
         <span
             data-reveal-onload
             style="--reveal-delay: 60ms; color: {{ $eyebrowColor }}"

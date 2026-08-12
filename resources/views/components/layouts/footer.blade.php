@@ -1,4 +1,4 @@
-@php
+﻿@php
     $columns = [
         'Grupo' => [
             ['label' => 'Nosotros', 'href' => route('home').'#nosotros'],
@@ -65,9 +65,9 @@
             </div>
         </div>
         
-        <div class="grid grid-cols-2 gap-5 border-t border-white/10 pt-8 sm:grid-cols-4 lg:gap-8">
+        <div class="grid grid-cols-2 gap-6 border-t border-white/10 pt-8 sm:grid-cols-4 lg:gap-8">
 
-            <div class="flex aspect-square max-h-28 items-center justify-center rounded-2xl bg-white p-5 shadow-sm transition duration-300 hover:scale-[1.03]">
+            <div class="flex aspect-square max-h-32 items-center justify-center overflow-hidden rounded-full bg-white p-6 shadow-sm transition duration-300 hover:scale-[1.03]">
                 <img
                     class="h-full w-full object-contain"
                     src="{{ asset('logo/forti-logo.png') }}"
@@ -75,7 +75,7 @@
                 />
             </div>
 
-            <div class="flex aspect-square max-h-28 items-center justify-center rounded-2xl bg-white p-5 shadow-sm transition duration-300 hover:scale-[1.03]">
+            <div class="flex aspect-square max-h-32 items-center justify-center overflow-hidden rounded-full bg-white p-2 shadow-sm transition duration-300 hover:scale-[1.03]">
                 <img
                     class="h-full w-full object-contain"
                     src="{{ asset('logo/upper-logo.png') }}"
@@ -83,7 +83,7 @@
                 />
             </div>
 
-            <div class="flex aspect-square max-h-28 items-center justify-center rounded-2xl bg-white p-5 shadow-sm transition duration-300 hover:scale-[1.03]">
+            <div class="flex aspect-square max-h-32 items-center justify-center overflow-hidden rounded-full bg-white p-2 shadow-sm transition duration-300 hover:scale-[1.03]">
                 <img
                     class="h-full w-full object-contain"
                     src="{{ asset('logo/controlUp-logo.png') }}"
@@ -91,7 +91,7 @@
                 />
             </div>
 
-            <div class="flex aspect-square max-h-28 items-center justify-center rounded-2xl bg-white p-5 shadow-sm transition duration-300 hover:scale-[1.03]">
+            <div class="flex aspect-square max-h-32 items-center justify-center overflow-hidden rounded-full bg-white p-4 shadow-sm transition duration-300 hover:scale-[1.03]">
                 <img
                     class="h-full w-full object-contain"
                     src="{{ asset('logo/innovet-logo.png') }}"
@@ -106,3 +106,4 @@
         </div>
     </div>
 </footer>
+

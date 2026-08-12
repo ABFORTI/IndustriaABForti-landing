@@ -39,17 +39,13 @@
                     style="--reveal-delay: {{ $loop->index * 80 }}ms"
                     class="group flex flex-col items-center gap-5 rounded-3xl border border-gray-200 bg-white p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-gray-300 hover:shadow-[0_20px_60px_-30px_rgba(23,24,28,0.25)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-carbon sm:p-8"
                 >
-                    <span class="flex h-14 w-full items-center justify-center">
+                    <span class="flex h-12 w-full items-center justify-center">
                         <img
                             src="{{ asset($brand['logo']) }}"
                             alt="Logo {{ $brand['name'] }}"
-                            class="max-h-12 w-auto object-contain transition duration-300 sm:max-h-14"
+                            class="max-h-12 w-auto object-contain transition duration-300 sm:max-h-16"
                         />
                     </span>
-                    <div class="flex flex-col gap-1">
-                        <span class="font-display text-sm font-semibold text-carbon">{{ $brand['name'] }}</span>
-                        <span class="text-xs font-medium uppercase tracking-[0.15em] text-gray-400">{{ $brand['tag'] }}</span>
-                    </div>
                 </a>
             @endforeach
         </div>
