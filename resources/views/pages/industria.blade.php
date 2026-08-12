@@ -12,11 +12,17 @@
         
     />
 
-    
     <x-sections.industries-served
         :items="$division['industries_served']"
         :accent="$division['accent']"
         :accent-soft="$division['accent_soft']"
+    />
+
+    <x-sections.materials
+        eyebrow="Materia prima"
+        title="Materiales de termoformado con los que trabajamos"
+        :items="$division['materials']"
+        :accent="$division['accent']"
     />
 
     <x-sections.cta-strip :accent="$division['accent']" :division="$slug" />

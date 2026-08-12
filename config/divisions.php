@@ -11,7 +11,8 @@ return [
         'cta_label' => 'Conocer Industria',
         'reference' => 'https://innovet.com.mx/',
         'visual_keywords' => ['Manufactura', 'Maquinaria', 'Piezas industriales', 'Ingeniería'],
-        'image' => 'img/innovet-card.webp',
+        'image' => 'img/innovet-card.webp',  
+        'logo' => 'logo/innovet-logo.png',
         'background_image' => 'img/innovet/background.webp',
         'capabilities' => [
             [
@@ -44,6 +45,15 @@ return [
                     'Contenedores con dos o más secciones que se pliegan mediante una bisagra.',
                 ],
             ],
+        ],
+        'materials' => [
+            ['label' => 'ESD', 'description' => 'Material antiestático', 'image' => 'img/innovet/materials/esd.webp'],
+            ['label' => 'HDPE', 'description' => 'Polietileno de alta densidad', 'image' => 'img/innovet/materials/hdpe.webp'],
+            ['label' => 'PET', 'description' => 'Tereftalato de polietileno', 'image' => 'img/innovet/materials/pet.webp'],
+            ['label' => 'PP', 'description' => 'Polipropileno', 'image' => 'img/innovet/materials/pp.webp'],
+            ['label' => 'PS', 'description' => 'Poliestireno', 'image' => 'img/innovet/materials/ps.webp'],
+            ['label' => 'HIPS', 'description' => 'Poliestireno de alto impacto', 'image' => 'img/innovet/materials/hips.webp'],
+            ['label' => 'De barrera', 'description' => 'Material de barrera', 'image' => 'img/innovet/materials/barrera.webp'],
         ],
         'industries_served' => [
             [
