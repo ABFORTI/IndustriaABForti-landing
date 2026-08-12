@@ -1,13 +1,14 @@
 @php
     $divisions = config('divisions');
     $firstSlug = array_key_first($divisions);
+
 @endphp
 
-<section id="divisiones" class="py-24 sm:py-32">
-    <div class="container-grid flex flex-col gap-14">
+<section id="divisiones" class="py-10 sm:py-24">
+    <div class="container-grid flex flex-col gap-10">
         <x-ui.section-heading
             align="center"
-            eyebrow="Grupo"
+            eyebrow="Business AB Forti"
             title="Tres capacidades. Una misma visión."
             subtitle="Integramos capacidades industriales, logísticas e inmobiliarias para ofrecer soluciones que acompañan a nuestros clientes en cada etapa de su crecimiento."
             class="mx-auto"
@@ -43,7 +44,6 @@
                 @endforeach
             </div>
 
-            {{-- Panels: apilados con CSS grid (misma celda), transición por opacidad --}}
             <div class="grid flex-1">
                 @foreach ($divisions as $slug => $division)
                     <div
@@ -57,12 +57,15 @@
                         class="division-panel {{ $slug === $firstSlug ? 'is-active' : '' }} col-start-1 row-start-1"
                     >
                         <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:items-center">
-                            <div class="division-panel__visual flex aspect-[4/3] flex-col items-center justify-center gap-4 rounded-3xl border border-gray-100 p-8 text-center">
-                                <x-ui.icon :name="$division['icon']" class="h-10 w-10" />
-                                <p class="text-xs text-gray-500">
-                                    Placeholder de imagen — {{ implode(' · ', $division['visual_keywords']) }}
-                                </p>
-                            </div>
+                        
+                            <div class="division-panel__visual aspect-[4/3] overflow-hidden rounded-3xl border border-gray-100">
+                                <img
+                                    src="{{ asset($division['image']) }}"
+                                    alt="{{ $division['name'] }}"
+                                    class="h-full w-full object-cover"
+                                />
+                            </div> 
+
 
                             <div class="flex flex-col gap-5">
                                 <span class="text-xs font-semibold uppercase tracking-[0.2em]" style="color: var(--tab-accent)">

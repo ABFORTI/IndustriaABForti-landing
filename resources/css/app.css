@@ -12,35 +12,37 @@
     --font-sans: 'Inter', 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
     --color-carbon: #17181c;
 
-    /*
-     * Acento Industria — inspirado en la identidad de Innovet.
-     */
-    --color-industria: #3f7a2a;
-    --color-industria-soft: #6abd45;
 
     /*
-     * Acento Logística — inspirado en la identidad de Upper Logistics
+     * Acento Industria — identidad Innovet: rojo corporativo.
      */
-    --color-logistica: #2e22a6;
-    --color-logistica-soft: #4e3fe0;
+    --color-industria: #a41e23;
+    --color-industria-soft: #d1454b;
 
     /*
-     * Acento Inmobiliaria — sin sitio de referencia.
+     * Acento Logística — identidad Upper Logistics: azul oscuro + naranja.
      */
-    --color-inmobiliaria: #8a6a32;
-    --color-inmobiliaria-soft: #c9a227;
+    --color-logistica: #1e3a8a;
+    --color-logistica-soft: #f97316;
+
+    /*
+     * Acento Inmobiliaria — café + amarillo mostaza.
+     */
+    --color-inmobiliaria: #6b4226;
+    --color-inmobiliaria-soft: #d4a017;
 }
 
-/*
- * Acento rojo (identidad Innovet), usado puntualmente en el carrusel de
- * "Industrias que atendemos" de la división industria. Fuera de @theme
- * a propósito: solo se referencia vía var() dinámico (no como clase
- * utilitaria literal), así que Tailwind lo eliminaría del CSS final por
- * no detectarlo en el escaneo de contenido.
- */
 :root {
-    --color-acent: #a41e23;
-    --color-acent-soft: #d1454b;
+    /*
+     * Acento Control Up Logistics — misma red que Upper Logistics (comparten
+     * el azul oscuro de la identidad logística), diferenciada con verde.
+     * Fuera de @theme a propósito: solo se referencia vía var() dinámico
+     * (config/logistics.php → companies.controlup.accent), no como clase
+     * utilitaria literal, así que Tailwind lo eliminaría del CSS final por
+     * no detectarlo en el escaneo de contenido.
+     */
+    --color-controlup: #15803d;
+    --color-controlup-soft: #1e3a8a;
 
     /*
      * Paleta del mapa de la red logística (BRIEF §14, ajustada a petición):
@@ -547,12 +549,6 @@
 
 .company-card:hover .company-card__details,
 .company-card.is-expanded .company-card__details {
-    grid-template-rows: 1fr;
-}
-
-/* Servicios (BRIEF §8) */
-.service-card:hover .service-card__description,
-.service-card.is-expanded .service-card__description {
     grid-template-rows: 1fr;
 }
 

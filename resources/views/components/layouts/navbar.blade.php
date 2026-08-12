@@ -3,8 +3,7 @@
         ['label' => 'Industria', 'href' => route('divisions.show', 'industria')],
         ['label' => 'Logística', 'href' => route('divisions.show', 'logistica')],
         ['label' => 'Inmobiliaria', 'href' => route('divisions.show', 'inmobiliaria')],
-        ['label' => 'Nosotros', 'href' => route('home').'#nosotros'],
-        ['label' => 'Contacto', 'href' => route('home').'#contacto'],
+        ['label' => 'Contacto', 'href' => route('contact.show')],
     ];
 @endphp
 
@@ -29,7 +28,7 @@
         </nav>
 
         <div class="hidden lg:block">
-            <x-ui.button :href="route('home').'#contacto'" class="px-5! py-2.5! text-xs">
+            <x-ui.button :href="route('contact.show')" class="px-5! py-2.5! text-xs">
                 Hablemos de tu proyecto
             </x-ui.button>
         </div>
@@ -58,7 +57,7 @@
 >
     <div class="container-grid flex items-center justify-between py-5">
         <span class="font-display text-lg font-bold tracking-tight text-white">
-            Grupo<span class="text-white/40">.</span>
+            Business AB Forti<span class="text-white/40">.</span>
         </span>
 
         <button
@@ -84,7 +83,7 @@
         @endforeach
 
         <div class="pt-8">
-            <x-ui.button :href="route('home').'#contacto'" class="w-full justify-center">
+            <x-ui.button :href="route('contact.show')" class="w-full justify-center">
                 Hablemos de tu proyecto
             </x-ui.button>
         </div>

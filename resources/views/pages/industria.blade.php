@@ -15,9 +15,9 @@
     
     <x-sections.industries-served
         :items="$division['industries_served']"
-        accent="acent"
-        accent-soft="acent-soft"
+        :accent="$division['accent']"
+        :accent-soft="$division['accent_soft']"
     />
 
-    <x-sections.cta-strip :accent="$division['accent']" />
+    <x-sections.cta-strip :accent="$division['accent']" :division="$slug" />
 </x-layouts.app>

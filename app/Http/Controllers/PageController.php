@@ -7,12 +7,7 @@ use Illuminate\View\View;
 
 class PageController extends Controller
 {
-    /**
-     * Home: resume el recorrido narrativo completo del grupo
-     * (BRIEF §4-7, §11-13). Las secciones leen config('divisions') y
-     * config('locations') por sí mismas (son reutilizables fuera del Home),
-     * así que no hace falta pasarles datos desde aquí.
-     */
+
     public function home(): View
     {
         return view('pages.home');

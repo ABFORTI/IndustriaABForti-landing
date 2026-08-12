@@ -1,7 +1,10 @@
-@props(['accent' => null, 'size' => 'compact', 'anchor' => null])
+@props(['accent' => null, 'size' => 'compact', 'anchor' => null, 'division' => null])
 
 @php
     $isLarge = $size === 'large';
+
+    $company = $division ? config("contact.division_map.{$division}") : null;
+    $contactHref = $company ? route('contact.show', ['empresa' => $company]) : route('contact.show');
 @endphp
 
 <section class="{{ $isLarge ? 'py-24 sm:py-32' : 'py-16' }}">
@@ -25,7 +28,7 @@
                 Cuéntanos qué necesitas y nuestro equipo encontrará la solución adecuada para tu operación.
             </p>
             <div class="flex flex-wrap justify-center gap-4">
-                <x-ui.button :href="route('home').'#contacto'" variant="inverse">
+                <x-ui.button :href="$contactHref" variant="inverse">
                     Solicitar información
                 </x-ui.button>
             </div>

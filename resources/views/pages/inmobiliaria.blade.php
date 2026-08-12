@@ -15,5 +15,5 @@
         :accentSoft="$division['accent_soft']"
     />
 
-    <x-sections.cta-strip :accent="$division['accent']" />
+    <x-sections.cta-strip :accent="$division['accent']" :division="$slug" />
 </x-layouts.app>

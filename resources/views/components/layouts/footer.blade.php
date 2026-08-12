@@ -3,7 +3,7 @@
         'Grupo' => [
             ['label' => 'Nosotros', 'href' => route('home').'#nosotros'],
             ['label' => 'Nuestra visión', 'href' => route('home')],
-            ['label' => 'Contacto', 'href' => route('home').'#contacto'],
+            ['label' => 'Contacto', 'href' => route('contact.show')],
         ],
         'Industria' => [
             ['label' => 'Soluciones', 'href' => route('divisions.show', 'industria')],
@@ -18,7 +18,7 @@
         'Inmobiliaria' => [
             ['label' => 'Proyectos', 'href' => route('divisions.show', 'inmobiliaria')],
             ['label' => 'Llave en mano', 'href' => route('divisions.show', 'inmobiliaria')],
-            ['label' => 'Contacto', 'href' => route('divisions.show', 'inmobiliaria')],
+            ['label' => 'Contacto', 'href' => route('contact.show', ['empresa' => 'ab-forti'])],
         ],
     ];
 
@@ -27,8 +27,8 @@
 <footer class="bg-carbon text-white">
     <div class="container-grid flex flex-col gap-16 py-20">
 
-        <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1fr]">
-            <div class="flex flex-col gap-4">
+        <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
+            <div class="flex flex-col gap-2">
                 <a
                     href="{{ route('home') }}"
                     class="rounded-sm font-display text-xl font-bold tracking-tight text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
@@ -43,40 +43,62 @@
                 <dl class="mt-2 flex flex-col gap-2 text-sm text-white/70">
                     <div class="flex gap-2">
                         <dt class="text-white/40">Tel:</dt>
-                        <dd>[Teléfono]</dd>
-                    </div>
-                    <div class="flex gap-2">
-                        <dt class="text-white/40">Comercial:</dt>
-                        <dd>[Correo innovet]</dd>
-                    </div>
-                    <div class="flex gap-2">
-                        <dt class="text-white/40">Comercial:</dt>
-                        <dd>[Correo upper]</dd>
+                        <dd>442 221 5943</dd>
                     </div>
                     <div class="flex gap-2">
                         <dt class="text-white/40">Dirección:</dt>
-                        <dd>[Dirección]</dd>
+                        <dd>Plaza Omega Center, PA-228, Parque Industrial Bernardo Quintana, 76246 Qro.</dd>
                     </div>
-                </dl>
+                    <div class="flex gap-2">
+                        <dt class="text-white/40">AB Forti:</dt>
+                        <dd>soporte@ab-forti.com</dd>
+                    </div>
+                    <div class="flex gap-2">
+                        <dt class="text-white/40">Innovet:</dt>
+                        <dd>correo@innovet.com</dd>
+                    </div>
+                    <div class="flex gap-2">
+                        <dt class="text-white/40">Upper Logistics:</dt>
+                        <dd>correo@upperlogistics.com</dd>
+                    </div>
+                </dl>       
+            </div>
+        </div>
+        
+        <div class="grid grid-cols-2 gap-5 border-t border-white/10 pt-8 sm:grid-cols-4 lg:gap-8">
+
+            <div class="flex aspect-square max-h-28 items-center justify-center rounded-2xl bg-white p-5 shadow-sm transition duration-300 hover:scale-[1.03]">
+                <img
+                    class="h-full w-full object-contain"
+                    src="{{ asset('logo/forti-logo.png') }}"
+                    alt="Logo Forti"
+                />
             </div>
 
-            @foreach ($columns as $title => $links)
-                <div class="flex flex-col gap-4">
-                    <p class="text-xs font-semibold uppercase tracking-[0.2em] text-white/40">{{ $title }}</p>
-                    <ul class="flex flex-col gap-3">
-                        @foreach ($links as $link)
-                            <li>
-                                <a
-                                    href="{{ $link['href'] }}"
-                                    class="rounded-sm text-sm text-white/70 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
-                                >
-                                    {{ $link['label'] }}
-                                </a>
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endforeach
+            <div class="flex aspect-square max-h-28 items-center justify-center rounded-2xl bg-white p-5 shadow-sm transition duration-300 hover:scale-[1.03]">
+                <img
+                    class="h-full w-full object-contain"
+                    src="{{ asset('logo/upper-logo.png') }}"
+                    alt="Logo UpperLogistics"
+                />
+            </div>
+
+            <div class="flex aspect-square max-h-28 items-center justify-center rounded-2xl bg-white p-5 shadow-sm transition duration-300 hover:scale-[1.03]">
+                <img
+                    class="h-full w-full object-contain"
+                    src="{{ asset('logo/controlUp-logo.png') }}"
+                    alt="Logo Control Up Logistics"
+                />
+            </div>
+
+            <div class="flex aspect-square max-h-28 items-center justify-center rounded-2xl bg-white p-5 shadow-sm transition duration-300 hover:scale-[1.03]">
+                <img
+                    class="h-full w-full object-contain"
+                    src="{{ asset('logo/innovet-logo.png') }}"
+                    alt="Logo Innovet"
+                />
+            </div>
+
         </div>
 
         <div class="flex flex-col gap-2 border-t border-white/10 pt-8 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">

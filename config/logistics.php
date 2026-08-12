@@ -6,8 +6,11 @@ return [
         'upperlogistics' => [
             'name' => 'UpperLogistics',
             'tag' => 'Red logística nacional',
-            'description' => 'Opera los centros de trabajo del grupo y conecta sectores automotriz y retail a través de una red logística nacional.',
+            'description' => 'Nos especializamos en ofrecer soluciones de almacenaje a la medida, espacios de almacenamiento seguro y centros de distribución de alta tecnología',
             'accent' => 'logistica',
+            'accent_soft' => 'logistica-soft',
+            'icon' => 'truck',
+            'logo' => 'logo/upper-logo.png',
             'traits' => ['Centros de trabajo propios', 'Sectores industriales', 'Segmentos Automotriz y Retail', 'Conexiones logísticas nacionales'],
             'reference' => 'https://upperlogistics.mx/',
         ],
@@ -15,23 +18,26 @@ return [
             'name' => 'Control Up Logistics',
             'tag' => 'Especialista dentro del ecosistema',
             'description' => 'Empresa especializada del mismo ecosistema logístico: comparte las capacidades generales de la red bajo un enfoque de atención dedicada.',
-            'accent' => 'logistica-soft',
+            'accent' => 'controlup',
+            'accent_soft' => 'controlup-soft',
+            'icon' => 'shield',
+            'logo' => 'logo/controlUp-logo.png',
             'traits' => ['3PL', 'Agencia aduanal', 'Desconsolidación', 'Cross Docking', 'Flete terrestre'],
             'reference' => null,
         ],
     ],
 
     'services' => [
-        ['key' => '3pl', 'icon' => 'layers', 'label' => '3PL', 'description' => 'Gestión externalizada de almacenaje, inventario y distribución de punta a punta.'],
-        ['key' => 'aduanal', 'icon' => 'stamp', 'label' => 'Agencia aduanal', 'description' => 'Trámites y cumplimiento aduanero para que la carga cruce frontera sin fricción.'],
-        ['key' => 'desconsolidacion', 'icon' => 'boxes', 'label' => 'Desconsolidación', 'description' => 'Separación de carga consolidada en envíos individuales listos para distribución.'],
-        ['key' => 'crossdocking', 'icon' => 'shuffle', 'label' => 'Cross Docking', 'description' => 'La mercancía cambia de transporte sin pasar por almacenaje, reduciendo tiempos.'],
-        ['key' => 'flete', 'icon' => 'truck', 'label' => 'Flete terrestre', 'description' => 'Transporte terrestre propio y aliado hacia cualquier punto de la red nacional.'],
+        ['key' => '3pl', 'icon' => 'layers', 'label' => '3PL', 'description' => 'Gestión externalizada de almacenaje, inventario y distribución de punta a punta.', 'image' => 'img/upper-card.webp'],
+        ['key' => 'aduanal', 'icon' => 'stamp', 'label' => 'Agencia aduanal', 'description' => 'Trámites y cumplimiento aduanero para que la carga cruce frontera sin fricción.', 'image' => 'img/upper/backgroundU.webp'],
+        ['key' => 'desconsolidacion', 'icon' => 'boxes', 'label' => 'Desconsolidación', 'description' => 'Separación de carga consolidada en envíos individuales listos para distribución.', 'image' => 'img/upper-card.webp'],
+        ['key' => 'crossdocking', 'icon' => 'shuffle', 'label' => 'Cross Docking', 'description' => 'La mercancía cambia de transporte sin pasar por almacenaje, reduciendo tiempos.', 'image' => 'img/upper/backgroundU.webp'],
+        ['key' => 'flete', 'icon' => 'truck', 'label' => 'Flete terrestre', 'description' => 'Transporte terrestre propio y aliado hacia cualquier punto de la red nacional.', 'image' => 'img/upper-card.webp'],
     ],
 
     'work_centers' => [
         'edomex' => [
-            'company' => 'upperlogistics',
+            'company' => 'controlup',
             'sector' => 'Industrial y distribución',
             'segments' => ['Automotriz', 'Retail'],
             'services' => ['3pl', 'crossdocking', 'flete'],
@@ -50,6 +56,7 @@ return [
             'segments' => ['Automotriz', 'Retail'],
             'services' => ['3pl', 'crossdocking', 'flete'],
             'point' => ['x' => 578.5, 'y' => 411.3],
+            'size_m2' => 21000,
         ],
         'guadalajara' => [
             'company' => 'upperlogistics',
@@ -57,13 +64,24 @@ return [
             'segments' => ['Automotriz', 'Retail'],
             'services' => ['3pl', 'desconsolidacion', 'flete'],
             'point' => ['x' => 468, 'y' => 422.9],
+            'size_m2' => 5000,
         ],
         'manzanillo' => [
-            'company' => 'controlup',
+            'company' => 'upperlogistics',
             'sector' => 'Conexión portuaria',
             'segments' => ['Retail'],
             'services' => ['aduanal', 'desconsolidacion', 'crossdocking'],
             'point' => ['x' => 460.4, 'y' => 463.1],
+            'size_m2' => 2000,
+            'port' => true,
+        ],
+    ],
+
+    // Centros sin coordenada en el mapa interactivo todavía: se muestran
+    // como chip informativo dentro de la tarjeta de su empresa.
+    'extra_work_centers' => [
+        'upperlogistics' => [
+            ['city' => 'Cuautitlán', 'size_m2' => 5000],
         ],
     ],
 
@@ -72,7 +90,6 @@ return [
         'monterrey' => ['label' => 'Monterrey', 'state' => 'Nuevo León', 'state_svg_id' => 'MXNLE', 'type' => 'connection', 'point' => ['x' => 571.1, 'y' => 248.2]],
         'villahermosa' => ['label' => 'Villahermosa', 'state' => 'Tabasco', 'state_svg_id' => 'MXTAB', 'type' => 'connection', 'point' => ['x' => 785.1, 'y' => 496.6]],
         'tijuana' => ['label' => 'Tijuana', 'state' => 'Baja California', 'state_svg_id' => 'MXBCN', 'type' => 'origin', 'point' => ['x' => 119.2, 'y' => 58.9]],
-        'belice' => ['label' => 'Belice', 'state' => 'Origen internacional', 'state_svg_id' => null, 'type' => 'origin', 'point' => ['x' => 940, 'y' => 560]],
         'pacifico' => ['label' => 'Ruta marítima', 'state' => 'Océano Pacífico', 'state_svg_id' => null, 'type' => 'sea', 'point' => ['x' => 340, 'y' => 520]],
     ],
 
@@ -98,13 +115,6 @@ return [
             'description' => 'Carga del noroeste que se conecta con Manzanillo y de ahí con el resto de la red logística.',
             'mode' => 'land',
             'waypoints' => ['point:tijuana', 'center:manzanillo'],
-        ],
-        [
-            'id' => 'belice',
-            'label' => 'Ruta internacional — Belice',
-            'description' => 'Carga internacional que ingresa por el sureste, pasa por Villahermosa y se conecta con la red logística nacional.',
-            'mode' => 'land',
-            'waypoints' => ['point:belice', 'point:villahermosa', 'center:cdmx'],
         ],
     ],
 

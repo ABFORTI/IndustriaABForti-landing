@@ -8,6 +8,7 @@ import { initReveal } from './reveal';
 import { initParallax } from './parallax';
 import { initCounters } from './counters';
 import { initLogistics } from './logistics-map';
+import { initContactForm } from './contact-form';
 
 document.addEventListener('DOMContentLoaded', () => {
     initNavbar();
@@ -19,4 +20,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initParallax();
     initCounters();
     initLogistics();
+    initContactForm();
 });

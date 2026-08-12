@@ -39,7 +39,6 @@ function initMapInstance(root) {
         `;
         tooltip.style.left = marker.style.left;
         tooltip.style.top = marker.style.top;
-        // El tooltip toma el color de la división de la ubicación activa.
         tooltip.style.setProperty('--marker-color', `var(--color-${marker.dataset.accent})`);
         tooltip.hidden = false;
 

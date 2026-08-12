@@ -14,7 +14,7 @@
 
     <x-logistica.services :services="config('logistics.services')" />
 
-    <x-sections.cta-strip :accent="$division['accent']" />
+    <x-sections.cta-strip :accent="$division['accent']" :division="$slug" />
 
     <x-seo.local-business-schema
         :division="$division"

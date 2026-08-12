@@ -1,6 +1,5 @@
-<section id="hero" class="overflow-hidden pb-24 pt-16 sm:pb-32 sm:pt-20">
+<section id="hero" class="overflow-hidden pb-20 pt-16 sm:pb-32 sm:pt-20">
     <div class="container-grid grid grid-cols-1 items-center gap-16 lg:grid-cols-[2fr_3fr] lg:gap-10">
-
         <div class="flex flex-col gap-8">
             <span data-reveal-onload style="--reveal-delay: 0ms" class="text-xs font-semibold uppercase tracking-[0.2em] text-gray-500">
                 Industria &middot; Logística &middot; Inmobiliaria
@@ -23,7 +22,7 @@
                 <x-ui.button href="#divisiones" variant="secondary">
                     Conoce nuestras soluciones
                 </x-ui.button>
-                <x-ui.button href="#contacto">
+                <x-ui.button :href="route('contact.show')">
                     Hablemos de tu proyecto
                 </x-ui.button>
             </div>
@@ -33,11 +32,6 @@
             <div class="rounded-3xl border border-gray-100 bg-gray-50/60 p-4 shadow-[0_20px_60px_-30px_rgba(23,24,28,0.25)] sm:p-6">
                 <x-map.mexico-map instance-id="hero-map" />
             </div>
-
-            <p class="max-w-md text-sm leading-relaxed text-gray-500">
-                Una red estratégica que conecta las principales zonas industriales y logísticas de México.
-            </p>
         </div>
-
     </div>
 </section>

@@ -32,8 +32,6 @@
     $variantClasses = match ($variant) {
         'secondary' => "border {$outline} bg-transparent",
         'ghost' => "px-0 py-0 rounded-none {$ghostText}",
-        // Para CTAs sobre fondos oscuros (BRIEF §13): borde/texto blanco, se
-        // rellena de blanco al hover. No depende de $accent.
         'inverse' => 'border border-white/30 text-white bg-transparent hover:bg-white hover:text-carbon focus-visible:outline-white',
         default => "text-white {$solid}",
     };

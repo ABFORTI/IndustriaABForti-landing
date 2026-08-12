@@ -4,7 +4,6 @@ export function initLogistics() {
     initLogisticsRoutes();
     initLogisticsDrawer();
     initCompanyCards();
-    initServiceCards();
     initGotoCenter();
 }
 
@@ -79,11 +78,6 @@ function initLogisticsRoutes() {
     });
 }
 
-/**
- * Panel contextual de un centro de trabajo (BRIEF §6-7): drawer lateral en
- * desktop, hoja inferior en mobile (mismo DOM, ver CSS). Se alimenta del
- * data-meta que mexico-map.blade.php agrega a cada marcador tipo "center".
- */
 function initLogisticsDrawer() {
     const root = document.querySelector('[data-logistics-map-root]');
     const drawer = root?.querySelector('[data-logistics-drawer]');
@@ -182,22 +176,6 @@ function initCompanyCards() {
                 event.preventDefault();
                 toggle();
             }
-        });
-    });
-}
-
-/** Tarjetas de servicio: icono + nombre + descripción corta (BRIEF §8). */
-function initServiceCards() {
-    const cards = document.querySelectorAll('[data-service-card]');
-
-    if (!cards.length) {
-        return;
-    }
-
-    cards.forEach((card) => {
-        card.addEventListener('click', () => {
-            const expanded = card.classList.toggle('is-expanded');
-            card.setAttribute('aria-expanded', expanded ? 'true' : 'false');
         });
     });
 }
