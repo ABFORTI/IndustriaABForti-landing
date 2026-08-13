@@ -13,17 +13,7 @@ class PageController extends Controller
         return view('pages.home');
     }
 
-    /**
-     * Página propia de cada división: /industria, /logistica, /inmobiliaria
-     * (BRIEF §8-10, §20 — URLs amigables e indexables por división).
-     *
-     * La vista tiene el mismo nombre que el slug (restringido en las rutas
-     * a las claves de config/divisions.php, ver routes/web.php), así que
-     * cada división puede tener secciones propias (BRIEF §8, §9 y §10 no
-     * comparten estructura) sin condicionales dentro de una vista genérica.
-     */
-    public function division(string $division): View
-    {
+    public function division(string $division): View {
         $data = config("divisions.{$division}");
 
         abort_unless($data, 404);
@@ -34,19 +24,7 @@ class PageController extends Controller
         ]);
     }
 
-    /**
-     * sitemap.xml (BRIEF §20 — "URLs amigables"): las 4 páginas reales del
-     * sitio, generadas desde config/divisions.php para no duplicar la lista
-     * de rutas a mano.
-     *
-     * Se construye con SimpleXMLElement en vez de una vista Blade: un
-     * prólogo "<?xml ...?>" al inicio de un .blade.php confunde a los
-     * linters de PHP (lo interpretan como una apertura de PHP real, aunque
-     * Blade lo compile bien) — más simple evitar Blade aquí que pelear con
-     * el linter.
-     */
-    public function sitemap(): Response
-    {
+    public function sitemap(): Response {
         $urls = collect([route('home')])
             ->merge(collect(array_keys(config('divisions')))->map(
                 fn (string $slug) => route('divisions.show', $slug)

@@ -10,8 +10,6 @@
             accent="logistica"
         />
 
-        {{-- Servicios: contenido siempre visible (sin depender de hover/tap)
-        para que se lea de un vistazo en cualquier dispositivo. --}}
         <div class="grid grid-cols-1 gap-3 sm:flex sm:flex-wrap sm:justify-center">
             @foreach ($services as $index => $service)
                 <article

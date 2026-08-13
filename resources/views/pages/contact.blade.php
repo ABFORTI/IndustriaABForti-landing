@@ -35,9 +35,14 @@
                         <strong class="font-semibold">¡Gracias! Tu mensaje fue enviado.</strong>
                         Nuestro equipo se pondrá en contacto contigo muy pronto.
                     </div>
+                @elseif (session('status') === 'error')
+                    <div class="rounded-2xl border border-red-300 bg-red-50 p-5 text-sm text-carbon">
+                        <strong class="font-semibold">No pudimos enviar tu mensaje.</strong>
+                        Inténtalo de nuevo en unos minutos o escríbenos directamente a alguno de los correos de la derecha.
+                    </div>
                 @endif
 
-                <form method="POST" action="{{ route('contact.store') }}" class="flex flex-col gap-5 rounded-3xl border border-gray-200 p-6 sm:p-8" novalidate>
+                <form method="POST" action="{{ route('contact.store') }}" data-contact-form class="flex flex-col gap-5 rounded-3xl border border-gray-200 p-6 sm:p-8" novalidate>
                     @csrf
 
                     {{-- Honeypot: oculto para personas, visible para bots --}}

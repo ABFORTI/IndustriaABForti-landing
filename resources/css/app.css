@@ -12,45 +12,21 @@
     --font-sans: 'Inter', 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
     --color-carbon: #17181c;
 
-
-    /*
-     * Acento Industria — identidad Innovet: rojo corporativo.
-     */
     --color-industria: #a41e23;
     --color-industria-soft: #d1454b;
 
-    /*
-     * Acento Logística — identidad Upper Logistics: azul oscuro + naranja.
-     */
     --color-logistica: #1e3a8a;
     --color-logistica-soft: #f97316;
 
-    /*
-     * Acento Inmobiliaria — café + amarillo mostaza.
-     */
     --color-inmobiliaria: #6b4226;
     --color-inmobiliaria-soft: #d4a017;
 }
 
 :root {
-    /*
-     * Acento Control Up Logistics — misma red que Upper Logistics (comparten
-     * el azul oscuro de la identidad logística), diferenciada con verde.
-     * Fuera de @theme a propósito: solo se referencia vía var() dinámico
-     * (config/logistics.php → companies.controlup.accent), no como clase
-     * utilitaria literal, así que Tailwind lo eliminaría del CSS final por
-     * no detectarlo en el escaneo de contenido.
-     */
     --color-controlup: #15803d;
     --color-controlup-soft: #1e3a8a;
 
-    /*
-     * Paleta del mapa de la red logística (BRIEF §14, ajustada a petición):
-     * centro logístico = naranja, origen de carga = azul oscuro,
-     * flujo/conexión = gris. Deliberadamente fuera de @theme: solo se
-     * referencia vía var() dinámico dentro de components/logistica/*, no
-     * como clase utilitaria literal.
-     */
+
     --color-logistics-center: #ea580c;
     --color-logistics-center-soft: #f97316;
     --color-logistics-origin: #1e3a8a;
@@ -139,6 +115,16 @@
     height: 1rem;
     transform: translate(-50%, -50%);
     cursor: pointer;
+}
+
+.map-marker::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2.75rem;
+    height: 2.75rem;
+    transform: translate(-50%, -50%);
 }
 
 .map-marker__dot {

@@ -141,8 +141,6 @@ function initMapInstance(root) {
                     line.setAttribute('x2', String(point.cx));
                     line.setAttribute('y2', String(point.cy));
                     line.setAttribute('class', 'map-connection');
-                    // Cada línea toma el color de la división del destino,
-                    // en vez de un único tono para toda la red.
                     line.style.stroke = `var(--color-${point.accent})`;
                     connectionsLayer.appendChild(line);
                 });

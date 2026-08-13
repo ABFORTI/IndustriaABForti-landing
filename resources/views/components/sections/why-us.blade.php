@@ -13,9 +13,9 @@
     <div class="container-grid flex flex-col gap-14">
         <x-ui.section-heading
             align="center"
-            eyebrow="Por qué nosotros"
-            title="Por qué trabajar con nosotros"
-            subtitle="Seis razones por las que empresas confían proyectos importantes al grupo."
+            eyebrow="ventajas competitivas"
+            title="Diseñados para hacer crecer tu negocio"
+            subtitle="Seis razones estratégicas por las que las empresas nos confían su infraestructura y logística."
             class="mx-auto"
         />
 

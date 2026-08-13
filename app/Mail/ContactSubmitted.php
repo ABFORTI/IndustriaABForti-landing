@@ -9,12 +9,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-/**
- * Correo enviado desde el formulario público /contacto (sección "Solicitar
- * información" / "Hablemos de tu proyecto"). El destinatario lo decide el
- * controlador según la empresa elegida en el select; este Mailable solo
- * arma el contenido.
- */
+
 class ContactSubmitted extends Mailable
 {
     use Queueable, SerializesModels;

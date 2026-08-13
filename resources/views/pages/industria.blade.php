@@ -2,7 +2,7 @@
     title="Industria — Manufactura y soluciones industriales en México | Grupo"
     :description="$division['tagline']"
 >
-    <x-sections.division-intro :division="$division" />
+    <x-sections.division-intro :division="$division" :slug="$slug" />
 
     <x-sections.capabilities
         eyebrow="Acompañamiento técnico, comunicación y trabajo estrecho con nuestros Clientes"

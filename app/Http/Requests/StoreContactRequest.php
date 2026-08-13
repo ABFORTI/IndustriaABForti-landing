@@ -6,13 +6,11 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class StoreContactRequest extends FormRequest
 {
-    public function authorize(): bool
-    {
+    public function authorize(): bool {
         return true;
     }
 
-    public function rules(): array
-    {
+    public function rules(): array {
         return [
             'name' => ['required', 'string', 'max:120'],
             'company' => ['required', 'string', 'in:'.implode(',', array_keys(config('contact.companies')))],
@@ -23,8 +21,7 @@ class StoreContactRequest extends FormRequest
         ];
     }
 
-    public function attributes(): array
-    {
+    public function attributes(): array {
         return [
             'name' => 'nombre completo',
             'company' => 'empresa',
@@ -34,8 +31,7 @@ class StoreContactRequest extends FormRequest
         ];
     }
 
-    public function messages(): array
-    {
+    public function messages(): array {
         return [
             'required' => 'El campo :attribute es obligatorio.',
             'string' => 'El campo :attribute debe ser texto.',

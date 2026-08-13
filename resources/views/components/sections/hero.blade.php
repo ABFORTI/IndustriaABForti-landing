@@ -2,7 +2,7 @@
     <div class="container-grid grid grid-cols-1 items-center gap-16 lg:grid-cols-[2fr_3fr] lg:gap-10">
         <div class="flex flex-col gap-8">
             <span data-reveal-onload style="--reveal-delay: 0ms" class="text-xs font-semibold uppercase tracking-[0.2em] text-gray-500">
-                Industria &middot; Logística &middot; Inmobiliaria
+                Un grupo &middot; Cuatro empresas &middot; Una sola operación
             </span>
 
             <h1
@@ -14,8 +14,9 @@
             </h1>
 
             <p data-reveal-onload style="--reveal-delay: 160ms" class="max-w-lg text-base leading-relaxed text-gray-600 sm:text-lg">
-                Diseñamos, fabricamos, almacenamos, transportamos y desarrollamos soluciones integrales
-                para empresas que buscan crecer.
+                Innovet, Upper Logistics, Control Up Logistics y AB Forti Inmobiliaria operan bajo un mismo
+                grupo para que tu proyecto no dependa de coordinar proveedores distintos: diseñamos, fabricamos,
+                almacenamos, transportamos y desarrollamos infraestructura de punta a punta.
             </p>
 
             <div data-reveal-onload style="--reveal-delay: 240ms" class="flex flex-wrap gap-4">

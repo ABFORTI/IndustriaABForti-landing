@@ -1,8 +1,10 @@
-@props(['division'])
+@props(['division', 'slug' => null])
 
 @php
     $hasBackground = !empty($division['background_image']);
     $eyebrowColor = $hasBackground ? '#ffffff' : "var(--color-{$division['accent']})";
+    $contactCompany = $slug ? config("contact.division_map.{$slug}") : null;
+    $contactHref = $contactCompany ? route('contact.show', ['empresa' => $contactCompany]) : route('contact.show');
 @endphp
 
 <section
@@ -64,5 +66,14 @@
         >
             {{ $division['subheadline'] ?? $division['tagline'] }}
         </p>
+
+        <div data-reveal-onload style="--reveal-delay: 300ms" class="pt-2">
+            <x-ui.button :href="$contactHref" variant="inverse">
+                Cotizar con {{ $division['name'] }}
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M9 6l6 6-6 6" />
+                </svg>
+            </x-ui.button>
+        </div>
     </div>
 </section>

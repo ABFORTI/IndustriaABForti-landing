@@ -27,8 +27,6 @@
             'state_svg_id' => $base['state_svg_id'],
             'highlights' => $base['highlights'],
             'type' => 'center',
-            // Paleta simplificada del mapa (no la de división): centro =
-            // naranja, origen = azul oscuro, conexión/flujo = gris.
             'accent' => 'logistics-center',
             'meta' => [
                 'city' => $base['city'],
@@ -45,7 +43,7 @@
 
     foreach ($networkPoints as $slug => $point) {
         if ($point['type'] === 'sea') {
-            continue; // solo se usa como punto de paso al dibujar la ruta marítima
+            continue;
         }
 
         $mapLocations[] = [
@@ -60,8 +58,6 @@
         ];
     }
 
-    // Rutas resueltas a coordenadas concretas (espacio del viewBox 0 0 1000 630)
-    // para el overlay SVG animado (BRIEF §5).
     $resolvedRoutes = collect($routes)->map(function ($route) use ($workCenters, $networkPoints) {
         $points = collect($route['waypoints'])->map(function ($waypoint) use ($workCenters, $networkPoints) {
             [$kind, $key] = explode(':', $waypoint, 2);
@@ -86,10 +82,6 @@
             title="Así se mueve la carga dentro de la red"
             subtitle="Selecciona un centro de trabajo para ver su empresa, sector y segmentos. Las líneas muestran cómo llegan las cargas desde distintos orígenes."
         />
-
-        {{-- Leyenda visual (BRIEF §14): 3 colores, sin flechas — centro
-        (naranja), origen (azul oscuro), flujo (gris), para que se lea de
-        un vistazo sin saturar el mapa. --}}
         <div class="flex flex-wrap items-center gap-x-6 gap-y-3 text-xs text-gray-600 sm:text-sm">
             <span class="inline-flex items-center gap-2">
                 <span class="h-2.5 w-2.5 rounded-full" style="background: var(--color-logistics-center)"></span>
@@ -111,9 +103,6 @@
 
         <div data-logistics-map-root class="relative -mx-4 rounded-2xl border border-gray-100 bg-white p-2 shadow-[0_20px_60px_-30px_rgba(23,24,28,0.25)] sm:mx-0 sm:rounded-3xl sm:p-6">
             <x-map.mexico-map instance-id="logistica-network" :locations="$mapLocations" />
-
-            {{-- Sin flechas: solo la línea de flujo (BRIEF §14), para que el
-            mapa se lea limpio y no sobrecargado. --}}
             <svg
                 class="pointer-events-none absolute inset-0 h-full w-full"
                 viewBox="0 0 1000 630"
@@ -122,7 +111,6 @@
                 data-logistics-routes
             ></svg>
 
-            {{-- Panel contextual: drawer en desktop, hoja inferior en mobile (BRIEF §6, §12) --}}
             <div data-logistics-drawer-backdrop class="logistics-drawer-backdrop" aria-hidden="true"></div>
 
             <aside

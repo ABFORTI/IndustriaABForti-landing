@@ -51,11 +51,23 @@
                 Una red logística integrada que conecta puertos, ciudades, centros de trabajo y sectores industriales en todo México.
             </p>
 
-            <div data-reveal-onload style="--reveal-delay: 240ms" class="pt-2">
+            <div data-reveal-onload style="--reveal-delay: 240ms" class="flex flex-wrap gap-4 pt-2">
                 <x-ui.button href="#red-logistica" variant="inverse">
                     Explorar nuestra red logística
                     <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <path d="M12 5v14M5 12l7 7 7-7" />
+                    </svg>
+                </x-ui.button>
+                <x-ui.button :href="route('contact.show', ['empresa' => 'upperlogistics'])" variant="inverse">
+                    Cotizar con Upper Logistics
+                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M9 6l6 6-6 6" />
+                    </svg>
+                </x-ui.button>
+                <x-ui.button :href="route('contact.show', ['empresa' => 'controlup'])" variant="inverse">
+                    Cotizar con Control Up Logistics
+                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M9 6l6 6-6 6" />
                     </svg>
                 </x-ui.button>
             </div>

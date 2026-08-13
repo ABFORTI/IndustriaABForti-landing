@@ -37,7 +37,7 @@
                 </a>
 
                 <p class="max-w-xs text-sm leading-relaxed text-white/60">
-                    Industria, logística e infraestructura bajo una misma visión.
+                    Grupo empresarial mexicano. Industria, logística e infraestructura bajo una misma visión.
                 </p>
 
                 <dl class="mt-2 flex flex-col gap-2 text-sm text-white/70">
@@ -61,7 +61,11 @@
                         <dt class="text-white/40">Upper Logistics:</dt>
                         <dd>correo@upperlogistics.com</dd>
                     </div>
-                </dl>       
+                    <div class="flex gap-2">
+                        <dt class="text-white/40">Control Up:</dt>
+                        <dd>correo@upperlogistics.com</dd>
+                    </div>
+                </dl>
             </div>
         </div>
         
@@ -102,7 +106,7 @@
         </div>
 
         <div class="flex flex-col gap-2 border-t border-white/10 pt-8 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
-            <p>&copy; {{ date('Y') }} [AB Forti Corporativo]. Todos los derechos reservados.</p>
+            <p>&copy; {{ date('Y') }} Business AB Forti. Todos los derechos reservados.</p>
         </div>
     </div>
 </footer>

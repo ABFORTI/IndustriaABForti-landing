@@ -2,7 +2,7 @@
     title="Inmobiliaria — Proyectos empresariales llave en mano | Grupo"
     :description="$division['subheadline']"
 >
-    <x-sections.division-intro :division="$division" />
+    <x-sections.division-intro :division="$division" :slug="$slug" />
 
     <x-sections.process-steps
         :steps="$division['process']"

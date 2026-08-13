@@ -1,4 +1,4 @@
-@props(['sites', 'accent'])
+@props(['sites', 'accent', 'instanceId' => 'infrastructure-map'])
 
 @php
     $max = max(array_column($sites, 'sqm'));
@@ -12,7 +12,7 @@
             subtitle="Metros cuadrados de almacenaje y operación por sede."
         />
 
-        <div class="flex flex-col gap-5">
+        <div class="hidden flex-col gap-5 sm:flex">
             @foreach ($sites as $index => $site)
                 @php $percentage = round($site['sqm'] / $max * 100); @endphp
 
@@ -43,7 +43,7 @@
             @endforeach
         </div>
         <div class="-mx-4 rounded-2xl border border-gray-100 bg-gray-50/60 p-2 shadow-[0_20px_60px_-30px_rgba(23,24,28,0.25)] sm:mx-0 sm:rounded-3xl sm:p-6">
-            <x-map.mexico-map instance-id="hero-map" />
+            <x-map.mexico-map :instance-id="$instanceId" />
         </div>
     </div>
 </section>

@@ -77,8 +77,6 @@ return [
         ],
     ],
 
-    // Centros sin coordenada en el mapa interactivo todavía: se muestran
-    // como chip informativo dentro de la tarjeta de su empresa.
     'extra_work_centers' => [
         'upperlogistics' => [
             ['city' => 'Cuautitlán', 'size_m2' => 5000],

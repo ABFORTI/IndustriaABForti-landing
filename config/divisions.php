@@ -141,7 +141,9 @@ return [
             ['step' => '06', 'label' => 'Entrega'],
         ],
         'project_placeholders' => [
-            'Parques industriales', 'Centros de distribución', 'Infraestructura empresarial',
+            ['label' => 'Parques industriales', 'image' => 'img/inmobiliaria/tipos/parques-industriales.webp'],
+            ['label' => 'Centros de distribución', 'image' => 'img/inmobiliaria/tipos/centros-distribucion.webp'],
+            ['label' => 'Infraestructura empresarial', 'image' => 'img/inmobiliaria/tipos/infraestructura-empresarial.webp'],
         ],
     ],
 
