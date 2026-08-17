@@ -9,7 +9,7 @@
     ];
 @endphp
 
-<section id="nosotros" class="py-24 sm:py-32">
+<section id="nosotros" class="py-18 sm:py-18">
     <div class="container-grid flex flex-col gap-14">
         <x-ui.section-heading
             align="center"

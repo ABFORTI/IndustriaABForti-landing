@@ -19,7 +19,7 @@
                     <tr>
                         <td style="padding:32px;">
                             <p style="margin:0 0 20px; font-size:14px; color:#52525b;">
-                                Alguien solicitó información desde el sitio web y eligió
+                                Alguien solicitó información desde el sitio web Business y eligió
                                 <strong>{{ $submission['company_label'] }}</strong> como destino.
                             </p>
 

@@ -4,7 +4,7 @@
     $max = max(array_column($sites, 'sqm'));
 @endphp
 
-<section class="py-16">
+<section class="pt-16 pb-6 sm:pb-8">
     <div class="container-grid flex flex-col gap-10">
         <x-ui.section-heading
             eyebrow="Infraestructura"
@@ -43,7 +43,7 @@
             @endforeach
         </div>
         <div class="-mx-4 rounded-2xl border border-gray-100 bg-gray-50/60 p-2 shadow-[0_20px_60px_-30px_rgba(23,24,28,0.25)] sm:mx-0 sm:rounded-3xl sm:p-6">
-            <x-map.mexico-map :instance-id="$instanceId" />
+            <img src="{{ asset('img/home_fisica.jpeg') }}" alt="Imagen">
         </div>
     </div>
 </section>

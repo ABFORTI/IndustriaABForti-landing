@@ -7,6 +7,6 @@
     '@type' => 'Organization',
     'name' => 'Grupo',
     'url' => url('/'),
-    'description' => 'Grupo empresarial mexicano con divisiones de Industria, Logística e Inmobiliaria.',
+    'description' => 'Grupo empresarial mexicano con divisiones de Industria y Logística',
 ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
 </script>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Innovet Logistics · Conectamos México</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <div id="map"></div>
+
+  <div class="hero">
+    <div class="eyebrow">COBERTURA NACIONAL</div>
+    <h1>Conectamos<br><b>México.</b></h1>
+    <p>Movemos productos entre puertos, centros logísticos y destinos estratégicos.</p>
+  </div>
+
+  <div class="top-stats">
+    <div><strong>32</strong><span>ESTADOS</span></div>
+    <div><strong id="activeCount">8</strong><span>REGIONES CONECTADAS</span></div>
+    <div><strong>2</strong><span>TIPOS DE RUTA</span></div>
+  </div>
+
+  <div class="side-panel">
+    <div class="panel-head"><span>RED LOGÍSTICA</span><button id="closePanel">×</button></div>
+    <h2 id="selectedTitle">México</h2>
+    <p id="selectedText">Selecciona un estado iluminado para conocer nuestra conexión.</p>
+    <div class="route-list" id="routeList"></div>
+  </div>
+
+  <div class="bottom-card">
+    <div class="legend"><i class="road"></i> Terrestre <i class="ship"></i> Marítima</div>
+    <div class="hint">Haz clic en los estados iluminados</div>
+  </div>
+
+  <div id="toast">Ruta en movimiento</div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

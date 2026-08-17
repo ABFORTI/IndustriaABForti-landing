@@ -29,15 +29,6 @@
             'href' => route('divisions.show', 'logistica'),
             'cta' => 'Conocer Control Up',
         ],
-        [
-            'name' => 'AB Forti Inmobiliaria',
-            'tag' => 'Inmobiliaria',
-            'logo' => 'logo/forti-logo.png',
-            'value' => $divisions['inmobiliaria']['tagline'],
-            'accent' => 'inmobiliaria',
-            'href' => route('divisions.show', 'inmobiliaria'),
-            'cta' => 'Conocer Inmobiliaria',
-        ],
     ];
 @endphp
 
@@ -46,7 +37,7 @@
         <x-ui.section-heading
             align="center"
             eyebrow="Nuestras marcas"
-            title="Cuatro empresas, un solo aliado estratégico."
+            title="Tres empresas, un solo aliado estratégico."
             subtitle="Un ecosistema de empresas especializadas que trabajan de forma sincronizada para elevar la competitividad de tu empresa."
             class="mx-auto"
         />

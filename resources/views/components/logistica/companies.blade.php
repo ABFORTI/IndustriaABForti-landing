@@ -35,8 +35,8 @@
     );
 @endphp
 
-<section class="py-16 sm:py-20">
-    <div class="container-grid flex flex-col gap-10">
+<section class="py-16 sm:py-16">
+    <div class="container-grid flex flex-col gap-12">
         <x-ui.section-heading
             title="Dos empresas, una misma red"
             subtitle="UpperLogistics y Control Up Logistics operan bajo un mismo ecosistema logístico."
@@ -123,10 +123,8 @@
                                     <div class="flex flex-wrap gap-2">
                                         @foreach ($centersByCompany[$slug] as $center)
                                             @if ($center['interactive'])
-                                                <button
-                                                    type="button"
-                                                    data-goto-center="{{ $center['slug'] }}"
-                                                    class="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold text-white transition-transform hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 {{ $center['port'] ? 'ring-2 ring-offset-1' : '' }}"
+                                                <span
+                                                    class="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold text-white {{ $center['port'] ? 'ring-2 ring-offset-1' : '' }}"
                                                     style="background: var(--company-accent); {{ $center['port'] ? '--tw-ring-color: var(--company-accent-soft)' : '' }}"
                                                 >
                                                     @if ($center['port'])
@@ -136,10 +134,7 @@
                                                     @if ($center['size_m2'])
                                                         <span class="opacity-85">· {{ number_format($center['size_m2'], 0, '.', ',') }} m²</span>
                                                     @endif
-                                                    <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                                        <path d="M9 6l6 6-6 6" />
-                                                    </svg>
-                                                </button>
+                                                </span>
                                             @else
                                                 <span
                                                     class="inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-semibold"

@@ -15,7 +15,6 @@
         'industria' => 'bg-industria hover:bg-industria-soft focus-visible:outline-industria',
         'logistica' => 'bg-logistica hover:bg-logistica-soft focus-visible:outline-logistica',
         'controlup' => 'bg-[var(--color-controlup)] hover:bg-[var(--color-controlup-soft)] focus-visible:outline-[var(--color-controlup)]',
-        'inmobiliaria' => 'bg-inmobiliaria hover:bg-inmobiliaria-soft focus-visible:outline-inmobiliaria',
         default => 'bg-carbon hover:bg-gray-800 focus-visible:outline-carbon',
     };
 
@@ -23,7 +22,6 @@
         'industria' => 'text-industria border-industria hover:bg-industria hover:text-white focus-visible:outline-industria',
         'logistica' => 'text-logistica border-logistica hover:bg-logistica hover:text-white focus-visible:outline-logistica',
         'controlup' => 'text-[var(--color-controlup)] border-[var(--color-controlup)] hover:bg-[var(--color-controlup)] hover:text-white focus-visible:outline-[var(--color-controlup)]',
-        'inmobiliaria' => 'text-inmobiliaria border-inmobiliaria hover:bg-inmobiliaria hover:text-white focus-visible:outline-inmobiliaria',
         default => 'text-carbon border-carbon hover:bg-carbon hover:text-white focus-visible:outline-carbon',
     };
 
@@ -31,7 +29,6 @@
         'industria' => 'text-industria hover:text-industria-soft',
         'logistica' => 'text-logistica hover:text-logistica-soft',
         'controlup' => 'text-[var(--color-controlup)] hover:text-[var(--color-controlup-soft)]',
-        'inmobiliaria' => 'text-inmobiliaria hover:text-inmobiliaria-soft',
         default => 'text-carbon hover:text-gray-600',
     };
 

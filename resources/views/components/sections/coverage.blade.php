@@ -48,6 +48,16 @@
 
 <section class="py-16 sm:py-20">
     <div class="container-grid flex flex-col gap-10">
+        <div class="overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-[0_20px_60px_-30px_rgba(23,24,28,0.25)]">
+            <iframe
+                src="{{ asset('mapa_logistico_marketing/index.html') }}"
+                title="Mapa logístico de presencia física"
+                class="block h-[520px] w-full border-0 sm:h-[600px]"
+                loading="lazy"
+            ></iframe>
+        </div>
+        
+
         <x-ui.section-heading
             eyebrow="Escala del grupo"
             title="Presencia física, no solo promesas."

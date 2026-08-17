@@ -10,7 +10,6 @@
     $eyebrowColor = match ($accent) {
         'industria' => 'text-industria',
         'logistica' => 'text-logistica',
-        'inmobiliaria' => 'text-inmobiliaria',
         default => 'text-gray-500',
     };
 

@@ -2,7 +2,6 @@
     $navLinks = [
         ['label' => 'Industria', 'href' => route('divisions.show', 'industria')],
         ['label' => 'Logística', 'href' => route('divisions.show', 'logistica')],
-        ['label' => 'Inmobiliaria', 'href' => route('divisions.show', 'inmobiliaria')],
         ['label' => 'Contacto', 'href' => route('contact.show')],
     ];
 @endphp

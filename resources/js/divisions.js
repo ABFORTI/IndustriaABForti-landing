@@ -13,7 +13,18 @@ export function initDivisionSwitcher() {
             });
 
             panels.forEach((panel) => {
-                panel.classList.toggle('is-active', panel.dataset.division === division);
+                const isActive = panel.dataset.division === division;
+
+                if (isActive) {
+                    panel.hidden = false;
+                    panel.classList.remove('is-active');
+                    
+                    void panel.offsetWidth;
+                    requestAnimationFrame(() => panel.classList.add('is-active'));
+                } else {
+                    panel.classList.remove('is-active');
+                    panel.hidden = true;
+                }
             });
         };
 

@@ -18,10 +18,6 @@ return [
             'label' => 'Control Up Logistics (Logística)',
             'email' => env('CONTACT_CONTROL_UP', 'correo@upperlogistics.com'),
         ],
-        'inmobiliaria' => [
-            'label' => 'AB Forti Inmobiliaria',
-            'email' => env('CONTACT_AB_FORTI', 'soporte@ab-forti.com'),
-        ],
     ],
 
     'corporate_email' => env('CONTACT_AB_FORTI', 'soporte@ab-forti.com'),
@@ -29,7 +25,6 @@ return [
     'division_map' => [
         'industria' => 'innovet',
         'logistica' => 'upperlogistics',
-        'inmobiliaria' => 'inmobiliaria',
     ],
 
 ];

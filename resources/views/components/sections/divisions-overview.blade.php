@@ -17,8 +17,6 @@
 
     $innovetLines = count($divisions['industria']['capabilities'] ?? []);
     $innovetSectors = count($divisions['industria']['industries_served'] ?? []);
-    $inmobiliariaSteps = count($divisions['inmobiliaria']['process'] ?? []);
-    $inmobiliariaTypes = count($divisions['inmobiliaria']['project_placeholders'] ?? []);
 
     $contactHrefFor = fn (string $company) => route('contact.show', ['empresa' => $company]);
 
@@ -37,30 +35,23 @@
             'accent' => 'logistica',
             'accent_soft' => 'logistica-soft',
         ],
-        [
-            'slug' => 'inmobiliaria',
-            'label' => 'Inmobiliaria',
-            'sector' => 'Inmobiliaria · Infraestructura',
-            'accent' => 'inmobiliaria',
-            'accent_soft' => 'inmobiliaria-soft',
-        ],
     ];
 
     $firstSlug = $areas[0]['slug'];
 @endphp
 
-<section id="divisiones" class="relative overflow-hidden py-16 sm:py-24">
+<section id="divisiones" class="relative overflow-hidden pt-6 pb-16 sm:pt-8 sm:pb-24">
     <div
         aria-hidden="true"
         class="pointer-events-none absolute inset-0 -z-10 opacity-60 [mask-image:radial-gradient(ellipse_at_top,black,transparent_75%)]"
         style="background-image: linear-gradient(to right, var(--color-gray-100) 1px, transparent 1px), linear-gradient(to bottom, var(--color-gray-100) 1px, transparent 1px); background-size: 44px 44px;"
     ></div>
 
-    <div class="container-grid flex flex-col gap-10 sm:gap-14">
+    <div class="container-grid flex flex-col gap-10 sm:gap-12">
         <x-ui.section-heading
             align="center"
             eyebrow="Arquitectura del grupo"
-            title="Tres áreas. Cuatro empresas especializadas."
+            title="Dos áreas. Tres empresas especializadas."
             subtitle="Industria, logística e infraestructura operan bajo un mismo holding. La logística reúne a dos empresas — Upper Logistics y Control Up Logistics — sobre la misma red nacional."
             class="mx-auto"
         />
@@ -73,7 +64,7 @@
             <div
                 role="tablist"
                 aria-label="Áreas de negocio del grupo"
-                class="grid grid-cols-3 gap-3 lg:w-72 lg:shrink-0 lg:grid-cols-1 lg:gap-2"
+                class="grid grid-cols-2 gap-2 lg:w-72 lg:shrink-0 lg:grid-cols-1 lg:gap-2"
             >
                 @foreach ($areas as $area)
                     <button
@@ -99,7 +90,7 @@
                 @endforeach
             </div>
 
-            <div class="grid flex-1">
+            <div class="flex-1">
                 @php $innovet = $divisions['industria']; @endphp
                 <div
                     role="tabpanel"
@@ -108,8 +99,9 @@
                     tabindex="0"
                     data-panel
                     data-division="industria"
+                    @if ('industria' !== $firstSlug) hidden @endif
                     style="--tab-accent: var(--color-industria); --tab-accent-soft: var(--color-industria-soft);"
-                    class="division-panel {{ 'industria' === $firstSlug ? 'is-active' : '' }} col-start-1 row-start-1"
+                    class="division-panel {{ 'industria' === $firstSlug ? 'is-active' : '' }}"
                 >
                     <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:items-center">
                         <div class="relative aspect-[4/3] overflow-hidden rounded-3xl border border-gray-100">
@@ -172,8 +164,9 @@
                     tabindex="0"
                     data-panel
                     data-division="logistica"
+                    @if ('logistica' !== $firstSlug) hidden @endif
                     style="--tab-accent: var(--color-logistica); --tab-accent-soft: var(--color-logistica-soft);"
-                    class="division-panel {{ 'logistica' === $firstSlug ? 'is-active' : '' }} col-start-1 row-start-1"
+                    class="division-panel {{ 'logistica' === $firstSlug ? 'is-active' : '' }}"
                 >
                     <div class="flex flex-col gap-6">
                         <div class="flex flex-col gap-2">
@@ -261,85 +254,7 @@
                         </div>
                     </div>
                 </div>
-
-                {{-- Panel: Inmobiliaria --}}
-                @php $inmobiliaria = $divisions['inmobiliaria']; @endphp
-                <div
-                    role="tabpanel"
-                    id="inmobiliaria-panel"
-                    aria-labelledby="inmobiliaria-tab"
-                    tabindex="0"
-                    data-panel
-                    data-division="inmobiliaria"
-                    style="--tab-accent: var(--color-inmobiliaria); --tab-accent-soft: var(--color-inmobiliaria-soft);"
-                    class="division-panel {{ 'inmobiliaria' === $firstSlug ? 'is-active' : '' }} col-start-1 row-start-1"
-                >
-                    <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:items-center">
-                        <div class="relative aspect-[4/3] overflow-hidden rounded-3xl border border-gray-100">
-                            <img
-                                src="{{ asset($inmobiliaria['image']) }}"
-                                alt="Inmobiliaria"
-                                loading="lazy"
-                                decoding="async"
-                                class="h-full w-full object-cover"
-                            />
-                            <span class="absolute left-4 top-4 inline-flex items-center rounded-full bg-white/95 px-3 py-1.5 shadow-sm">
-                                <img src="{{ asset('logo/forti-logo.png') }}" alt="" class="h-5 w-auto object-contain" />
-                            </span>
-                            <span class="absolute right-4 top-4 inline-flex items-center rounded-full border border-white/20 bg-black/40 px-3 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-white backdrop-blur-md">
-                                Inmobiliaria · Infraestructura
-                            </span>
-                        </div>
-
-                        <div class="flex flex-col gap-5">
-                            <span class="text-xs font-semibold uppercase tracking-[0.2em]" style="color: var(--tab-accent)">
-                                Inmobiliaria
-                            </span>
-
-                            <p class="max-w-md text-base leading-relaxed text-gray-600 sm:text-lg">
-                                {{ $inmobiliaria['tagline'] }}
-                            </p>
-
-                            <dl class="grid grid-cols-2 gap-3">
-                                <div class="flex flex-col gap-1 rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">
-                                    <dt class="flex items-center gap-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-gray-400">
-                                        <x-ui.icon name="sliders" style="color: var(--tab-accent)" class="h-3.5 w-3.5 shrink-0" />
-                                        Proceso llave en mano
-                                    </dt>
-                                    <dd class="font-display text-lg font-bold text-carbon">{{ $inmobiliariaSteps }} etapas</dd>
-                                </div>
-                                <div class="flex flex-col gap-1 rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">
-                                    <dt class="flex items-center gap-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-gray-400">
-                                        <x-ui.icon name="building" style="color: var(--tab-accent)" class="h-3.5 w-3.5 shrink-0" />
-                                        De desarrollo industrial
-                                    </dt>
-                                    <dd class="font-display text-lg font-bold text-carbon">{{ $inmobiliariaTypes }} tipos</dd>
-                                </div>
-                            </dl>
-
-                            <div class="flex flex-col gap-3 pt-1 sm:flex-row sm:flex-wrap sm:items-center">
-                                <x-ui.button :href="$contactHrefFor('inmobiliaria')" accent="inmobiliaria">
-                                    Cotizar desarrollo inmobiliario
-                                </x-ui.button>
-                                <x-ui.button :href="route('divisions.show', 'inmobiliaria')" accent="inmobiliaria" variant="ghost">
-                                    Explorar capacidad inmobiliaria →
-                                </x-ui.button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
-        </div>
-
-        {{-- CTA Matrix: enterprise vs. específico --}}
-        <div class="flex flex-col items-center justify-between gap-5 rounded-2xl border border-gray-200 bg-gray-50/60 p-6 sm:flex-row sm:p-8">
-            <div class="flex flex-col gap-1 text-center sm:text-left">
-                <p class="font-display text-lg font-semibold text-carbon">¿Tu proyecto cruza varias áreas?</p>
-                <p class="text-sm leading-relaxed text-gray-600">Coordinamos industria, logística e infraestructura bajo una sola cotización de grupo.</p>
-            </div>
-            <x-ui.button :href="$contactHrefFor('ab-forti')" class="shrink-0">
-                Cotizar proyecto integral de grupo →
-            </x-ui.button>
         </div>
     </div>
 </section>

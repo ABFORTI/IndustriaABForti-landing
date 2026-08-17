@@ -17,11 +17,7 @@ function buildPathD(points) {
         .join(' ');
 }
 
-/**
- * Dibuja las rutas de config('logistics.routes') como líneas animadas +
- * partículas de carga (BRIEF §5, §14). Las coordenadas ya vienen resueltas
- * al espacio del viewBox "0 0 1000 630" desde el Blade.
- */
+
 function initLogisticsRoutes() {
     const root = document.querySelector('[data-logistics-map-root]');
     const svg = root?.querySelector('[data-logistics-routes]');

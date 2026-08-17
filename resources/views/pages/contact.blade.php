@@ -4,7 +4,6 @@
         'innovet' => ['icon' => 'cube', 'accent' => 'industria'],
         'upperlogistics' => ['icon' => 'truck', 'accent' => 'logistica'],
         'controlup' => ['icon' => 'map', 'accent' => 'logistica'],
-        'inmobiliaria' => ['icon' => 'building', 'accent' => 'inmobiliaria'],
     ];
 @endphp
 

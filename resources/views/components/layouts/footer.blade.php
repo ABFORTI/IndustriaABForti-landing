@@ -15,11 +15,6 @@
             ['label' => 'Transporte', 'href' => route('divisions.show', 'logistica')],
             ['label' => 'Logística', 'href' => route('divisions.show', 'logistica')],
         ],
-        'Inmobiliaria' => [
-            ['label' => 'Proyectos', 'href' => route('divisions.show', 'inmobiliaria')],
-            ['label' => 'Llave en mano', 'href' => route('divisions.show', 'inmobiliaria')],
-            ['label' => 'Contacto', 'href' => route('contact.show', ['empresa' => 'ab-forti'])],
-        ],
     ];
 
 @endphp

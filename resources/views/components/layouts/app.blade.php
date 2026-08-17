@@ -1,5 +1,5 @@
 @props([
-    'title' => 'Grupo — Industria, Logística e Inmobiliaria en México',
+    'title' => 'Industria y Logística en México',
     'description' => 'Grupo empresarial mexicano que integra industria, logística e infraestructura: manufactura, almacenamiento, transporte y desarrollo de proyectos llave en mano.',
     'noindex' => false,
 ])

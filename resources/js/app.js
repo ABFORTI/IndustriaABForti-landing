@@ -9,6 +9,7 @@ import { initParallax } from './parallax';
 import { initCounters } from './counters';
 import { initLogistics } from './logistics-map';
 import { initContactForm } from './contact-form';
+import { initHeroVideo } from './hero-video';
 
 document.addEventListener('DOMContentLoaded', () => {
     initNavbar();
@@ -21,4 +22,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initCounters();
     initLogistics();
     initContactForm();
+    initHeroVideo();
 });

@@ -120,31 +120,4 @@ return [
         ],
     ],
 
-    'inmobiliaria' => [
-        'name' => 'Inmobiliaria',
-        'accent' => 'inmobiliaria',
-        'accent_soft' => 'inmobiliaria-soft',
-        'headline' => 'Tu proyecto. De la idea a la realidad.',
-        'tagline' => 'Desarrollamos proyectos inmobiliarios empresariales llave en mano, desde la planeación hasta la entrega.',
-        'subheadline' => 'Desarrollamos proyectos empresariales llave en mano, integrando planeación, diseño, construcción y entrega bajo una misma visión.',
-        'cta_label' => 'Conocer Inmobiliaria',
-        'reference' => null,
-        'visual_keywords' => ['Edificios', 'Parques industriales', 'Arquitectura', 'Infraestructura'],
-        'background_image' => 'img/inmobiliaria/inmobiliariaBack.jpg',
-        'image' => 'img/inmobiliaria-card.webp',
-        'process' => [
-            ['step' => '01', 'label' => 'Planeación'],
-            ['step' => '02', 'label' => 'Diseño'],
-            ['step' => '03', 'label' => 'Ingeniería'],
-            ['step' => '04', 'label' => 'Construcción'],
-            ['step' => '05', 'label' => 'Equipamiento'],
-            ['step' => '06', 'label' => 'Entrega'],
-        ],
-        'project_placeholders' => [
-            ['label' => 'Parques industriales', 'image' => 'img/inmobiliaria/tipos/parques-industriales.webp'],
-            ['label' => 'Centros de distribución', 'image' => 'img/inmobiliaria/tipos/centros-distribucion.webp'],
-            ['label' => 'Infraestructura empresarial', 'image' => 'img/inmobiliaria/tipos/infraestructura-empresarial.webp'],
-        ],
-    ],
-
 ];
